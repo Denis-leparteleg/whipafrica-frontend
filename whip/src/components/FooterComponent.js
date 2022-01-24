@@ -1,7 +1,9 @@
 import React from 'react';
 // import bien from '../images/bien.jpeg';
 
-
+function submit(){
+    console.log("Sign up has been clicked");
+}
 function Footer(){
       return(
           <div>
@@ -32,7 +34,7 @@ function Footer(){
                     <div class = "col-md-12 text-center">
                         <p>Are you a - <span>Manager</span>- <span>Music label</span> - <span>Agent</span> - <span>Promoter</span> or an <span>Artist</span>?</p>
                         <p><span>DISCOVER. </span> <span>ACCESS. </span> <span>EVALUATE DATA. </span></p>
-                        <button class="btn mt-4 btn-light btn-lg rounded-pill" type="submit" >SIGN UP</button>
+                        <button class="btn mt-4 btn-light btn-lg rounded-pill" type="submit"onClick = {()=>{submit()}}>SIGN UP</button>
                         <p> &copy; COPYRIGHT 2022 WHIP AFRICA MUSIC</p>
                     </div>
             </div>
