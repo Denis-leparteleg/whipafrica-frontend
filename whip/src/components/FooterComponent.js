@@ -1,4 +1,5 @@
 import React from 'react';
+// import bien from '../images/bien.jpeg';
 
 
 function Footer(){
@@ -7,20 +8,23 @@ function Footer(){
             <div class = "container">
                 <div class="card-group">
                     <div class="card">
-                         <img src="" class="card-img-top" alt="..."></img>
+                        {/* <img src={require('../images/bien.jpeg').default} width="100" height="50" />
+                         {/* <img src={bien} class="card-img-top" alt="..."></img> */}
+                         {/* <img src={process.env.PUBLIC_URL + "/images/bien.jpg"} /> */}
+                         <img src="../images/karun.jpg" class="card-img-top" alt="..." height = "250px"></img>
                     </div>
                     <div class="card">
-                        <img src="" class="card-img-top" alt="..."></img>
+                        <img src="../images/phy.jpeg" class="card-img-top" alt="..." height = "250px"></img>
                     </div>
                     <div class="card">
-                        <img src="..." class="card-img-top" alt="..."></img>
+                        <img src="../images/migos.jpeg" class="card-img-top" alt="..."height = "250px"></img>
                     </div>
                     <div class="card">
-                        <img src="..." class="card-img-top" alt="..."></img>
+                        <img src="../images/bien.jpg" class="card-img-top" alt="..."height = "250px"></img>
                     </div>
                     <div class="card">
-                        <div class = "card"><img src="..." class="card-img-top" alt="..."></img></div>
-                        <div class = "card"><img src="..." class="card-img-top" alt="..."></img></div>
+                        <div class = "card"><img src="../images/wahu.jpeg" class="card-img-top" alt="..."height = "120px"></img></div>
+                        <div class = "card"><img src="../images/stromae.jpeg" class="card-img-top" alt="..."height = "120px"></img></div>
                     </div>
                 </div>
             </div>
