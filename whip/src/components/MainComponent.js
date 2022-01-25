@@ -27,7 +27,8 @@ const MainComponent = () => {
               </div> 
               <div className='soul'>
                       <span>Bensoul</span>
-                      <h4 className='mt-0'>--------------------------------------------------------------------
+                      <h4 className='mt-0'>
+                        <span className='dot-line'>--------------------------------------------------------------------</span>
                   <br/>
                       <b>Discover, Explore top music & Artists from
                       your<br /> favourite Musician today. Track Streams, 
