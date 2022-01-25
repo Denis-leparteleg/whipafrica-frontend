@@ -90,6 +90,55 @@ code {
   margin-left: 22%;
 }
 
+.dot-line{
+  color: #4441B0;
+}
+
 .soul {
   color: #262323;
+}
+
+@media only screen and (min-width: 1400px) {
+  .cont{
+    margin-top: 16%;
+    margin-left: 28%;
+  }
+  
+  .img-1 {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    object-fit: cover;
+    margin-left: 40px;
+  }
+  
+  .img-2, .img-4, .img-5, .img-6{
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+  } 
+  
+  .img-3 {
+    height: 280px;
+    width: 280px;
+    border: 8px solid #4441B0;
+    border-radius: 280px;
+    margin-top: 50px;
+  }
+  
+  .img-cont {
+    height: 1008px;
+    width: 555px;
+    border-radius: 525px 0 0 525px;
+  }
+  
+  .btn {
+    margin-left: 19%;
+    margin-top: 15px;
+    width: 26%;
+  }
+  
+  .media {
+    margin-left: 16%;
+  }
 }
