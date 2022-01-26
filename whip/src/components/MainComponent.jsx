@@ -17,7 +17,7 @@ const MainComponent = () => {
   return (
     <div class = "">
       <Header/>
-         <div className='cont-wrapper'>
+         <div className='cont-wrapper container-fluid'>
            <div className='cont'>
               <span className='art'>Evaluate Any <b>ARTISTS</b> Potential using <b>WHIP DATA.</b><br/>
                 Discover breaking through <b>MUSICIANS</b> across <b>AFRICA</b>.
@@ -32,7 +32,7 @@ const MainComponent = () => {
               <div className='soul'>
                       <p>Bensoul<span className='p-tag'>Plays:8,788,789</span></p>
                       <h4>
-                        <span className='dot-line'>---------------------------------------------------------</span>
+                        <span className='dot-line'>--------------------------------------------------------------</span>
                       <br/>
                       <b className='disc'>Discover, Explore top music & Artists from
                       your<br /> favourite Musician today. Track Streams, 
