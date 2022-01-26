@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 // import bien from '../images/bien.jpeg';
+// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Login from './LoginComponent';
+import Signup from './SignupComponent';
+
 
 function submit(){
     console.log("Sign up has been clicked");
 }
+
 function Footer(){
+    const [page, setPage] = useState(0);
+
+    function nav(n){
+        console.log(n)
+        setPage(n);
+    }
       return(
           <div>
             <div class = "container">
@@ -30,15 +41,38 @@ function Footer(){
                     </div>
                 </div>
             </div>
-            <div class = "row">
+            <div class = "row" id="row">
                     <div class = "col-md-12 text-center">
                         <p>Are you a - <span>Manager</span>- <span>Music label</span> - <span>Agent</span> - <span>Promoter</span> or an <span>Artist</span>?</p>
                         <p><span>DISCOVER. </span> <span>ACCESS. </span> <span>EVALUATE DATA. </span></p>
-                        <button class="btn mt-4 btn-light btn-lg rounded-pill" type="submit"onClick = {()=>{submit()}}>SIGN UP</button>
+                        {/* <Router> */}
+                            {/* <Link to={"/sign-in"}> */}
+                                {/* <button class="btn mt-4 btn-light btn-lg rounded-pill" type="submit"onClick = {()=>{submit()}}>SIGN UP</button> */}
+                            {/* </Link> */}
+                                {/* <Route path="/sign-in" element={<Login/>} /> */}
+                        {/* </Router> */}
+                        {/* <button class = "btn mt-4 btn-light btn-lg rounded-pill" type="submit" onClick={()=>{nav(1)}}>SIGN UP</button>
+                        <p>Already a user??</p> */}
+                        <button class = "btn mt-4 btn-light btn-lg rounded-pill" type="submit" onClick={()=>{nav(2)}}>SIGN IN</button>
                         <p> &copy; COPYRIGHT 2022 WHIP AFRICA MUSIC</p>
                     </div>
             </div>
+            <Switch n={page}/>
         </div>
       ) 
 }
+
+const Switch=({n})=>{
+    // if (n==1){
+    //     return (
+    //         <div><Signup/></div>
+    //     );
+    // }
+    if (n == 2){
+        return (
+            <div><Login/></div>
+        )
+    }
+    return null;
+} 
 export default Footer;
