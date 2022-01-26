@@ -1,4 +1,7 @@
 import React from 'react';
+import Navbar from 'react-bootstrap/Navbar'
+import Login from './LoginComponent';
+
 
 function Header(){
       return(
@@ -14,7 +17,7 @@ function Header(){
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav ml-auto" >
                     <li class="nav-item active">
-                        <a class="nav-link" id="home" href="#">HOME<span class="sr-only"></span></a>
+                        <a class="nav-link " id="home" href="#">HOME<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" id="art" href="#">ARTIST DASHBOARD</a>
@@ -22,6 +25,7 @@ function Header(){
                     </ul>
                 </div>
             </nav>
+            
             </div>
           </div>
       )

@@ -5,13 +5,17 @@ import wahu from "../assets/wahu.jpeg";
 import art3 from "../assets/art3.jpeg";
 import art1 from "../assets/art1.jpg";
 import art2 from "../assets/art2.jpeg";
-import Header from './HeaderComponent'
-import Footer from './FooterComponent'
+import Header from './HeaderComponent';
+import Footer from './FooterComponent';
+import Login from './LoginComponent';
+import Signup from './SignupComponent';
+
+
 
 const MainComponent = () => {
 
   return (
-    <div>
+    <div class = "">
       <Header/>
          <div className='cont-wrapper'>
            <div className='cont'>
@@ -42,6 +46,8 @@ const MainComponent = () => {
             </div>
          </div>
          <Footer/>
+         {/* <Login/>
+         <Signup/> */}
     </div>
   )
 }
