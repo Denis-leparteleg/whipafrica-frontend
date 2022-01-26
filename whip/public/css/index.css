@@ -157,4 +157,20 @@
   .disc{
     font-size: 30px;
   }
+.row{
+  background-color: #4441B0;
+  color: white;
+  padding: 50px;
+}
+.row p{
+  padding: 10px;
+}
+.btn
+{
+      width: 20%;
+      padding: 5px;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #4441B0;
 }
