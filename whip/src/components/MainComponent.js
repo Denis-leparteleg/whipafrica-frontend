@@ -15,7 +15,7 @@ const MainComponent = () => {
       <Header/>
          <div className='cont-wrapper'>
            <div className='cont'>
-              <span>Evaluate Any <b>ARTISTS</b> Potential using <b>WHIP DATA.</b><br/>
+              <span className='art'>Evaluate Any <b>ARTISTS</b> Potential using <b>WHIP DATA.</b><br/>
                 Discover breaking through <b>MUSICIANS</b> across <b>AFRICA</b>.
               </span>
               <div className='left-cont'>
@@ -26,15 +26,16 @@ const MainComponent = () => {
                 <img className='img-5' src={art3}/>
               </div> 
               <div className='soul'>
-                      <span>Bensoul</span>
-                      <h4 className='mt-0'>--------------------------------------------------------------------
-                  <br/>
-                      <b>Discover, Explore top music & Artists from
+                      <p>Bensoul<span className='p-tag'>Plays:8,788,789</span></p>
+                      <h4>
+                        <span className='dot-line'>---------------------------------------------------------</span>
+                      <br/>
+                      <b className='disc'>Discover, Explore top music & Artists from
                       your<br /> favourite Musician today. Track Streams, 
                       social<br /><span className='media'> media charts and Playlist Data.</span></b>
                   </h4>
               </div>
-            <button className='btn btn-sm'>Search Artist</button>  
+            <button className='btn btn-1 btn-sm'><strong className='search'>Search Artist</strong></button>  
             </div>
             <div className='img-wrapper'>
               <img className='img-cont' src={bensoul}/>
