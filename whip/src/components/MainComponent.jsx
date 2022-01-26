@@ -37,7 +37,7 @@ const MainComponent = () => {
                       <b className='disc'>Discover, Explore top music & Artists from
                       your<br /> favourite Musician today. Track Streams, 
                       social<br /><span className='media'> media charts and Playlist Data.</span></b>
-                  </h4>
+                    </h4>
               </div>
             <button className='btn btn-1 btn-sm'><strong className='search'>Search Artist</strong></button>  
             </div>

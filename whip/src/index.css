@@ -14,4 +14,67 @@
 
 .navbar-light .navbar-nav .nav-link {
   color: #4441B0;
+  font-size: 24px;
+}
+
+.soul {
+  color: #262323;
+}
+
+.p-tag {
+  margin-left: 35%;
+}
+
+@media only screen and (min-width: 1400px) {
+  .cont{
+    margin-top: 14%;
+    margin-left: 28%;
+  }
+  
+  .img-1 {
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    object-fit: cover;
+    margin-left: 40px;
+  }
+  
+  .img-2, .img-4, .img-5, .img-6{
+    height: 150px;
+    width: 150px;
+    border-radius: 150px;
+  } 
+  
+  .img-3 {
+    height: 280px;
+    width: 280px;
+    border-radius: 280px;
+    margin-top: 50px;
+  }
+  
+  .img-cont {
+    height: 1008px;
+    width: 555px;
+    border-radius: 525px 0 0 525px;
+  }
+  
+  .btn-1 {
+    margin-left: 20%;
+    margin-top: 15px;
+    width: 26%;
+  }
+  
+  .media {
+    margin-left: 16%;
+  }
+
+  .soul {
+    margin-top: 5%;
+  }
+  .dot-line{
+    font-size: 30px;
+  }
+  .disc{
+    font-size: 30px;
+  }
 }
