@@ -17,7 +17,7 @@ function Footer(){
         setPage(n);
     }
       return(
-          <div>
+          <div class="footer">
             <div class = "container">
                 <div class="card-group">
                     <div class="card">
