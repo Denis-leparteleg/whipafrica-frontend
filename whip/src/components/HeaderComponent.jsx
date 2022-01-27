@@ -7,7 +7,7 @@ function Header(){
       return(
           <div>
             <div class = "container">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-expand-lg navbar-light bg-white">
                 <a class="navbar-brand" href="#">
                     <img class="logo" src="../images/logo2.jpeg" width="45" height="40" alt=""/>
                 </a>
