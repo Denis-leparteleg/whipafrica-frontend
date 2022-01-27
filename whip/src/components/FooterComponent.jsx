@@ -63,11 +63,6 @@ function Footer(){
 }
 
 const Switch=({n})=>{
-    // if (n==1){
-    //     return (
-    //         <div><Signup/></div>
-    //     );
-    // }
     if (n == 2){
         return (
             <div><Login/></div>

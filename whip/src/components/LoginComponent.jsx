@@ -39,7 +39,7 @@ function Login(){
                 </p>
                 <p>
                     Already a member?
-                    <button class = "btn mt-4 btn-light btn-lg rounded-pill" type="submit" onClick={()=>{navv(1)}}>SIGN UP</button>
+                    <button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={()=>{navv(1)}}>SIGN UP</button>
                 </p>
             </form>
             </div>x
@@ -56,6 +56,7 @@ const Switch=({n})=>{
             <div><Signup/></div>
         );
     }
+    return null;
 }
 
 export default Login;
