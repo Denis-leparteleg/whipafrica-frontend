@@ -7,6 +7,9 @@ import art1 from "../assets/art1.jpg";
 import art2 from "../assets/art2.jpeg";
 import Header from './HeaderComponent'
 import Footer from './FooterComponent'
+import Analytics from './analyticsComponent'
+import Navbar from './NavbarComponent'
+import Sidenav from './sideNavComponent'
 
 const MainComponent = () => {
 
@@ -40,7 +43,14 @@ const MainComponent = () => {
               <img className='img-cont' src={bensoul}/>
             </div>
          </div>
-         <Footer/>
+         <Navbar />
+         <section>
+            <nav>
+              <Sidenav />
+            </nav>
+            <Analytics/>
+          </section>
+          <Footer/>
     </div>
   )
 }

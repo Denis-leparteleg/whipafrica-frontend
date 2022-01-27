@@ -25,7 +25,10 @@ code {
 }
 
 #analytics{
-  padding: 120px;
+  /* padding: 120px; */
+  padding-top: 0px !important;
+  color: #282c34;
+  float: right;
 }
 
 #dash{
@@ -44,4 +47,15 @@ color:white;
   border-radius: 15px;
   width: 50px;
   height: 50px;
+}
+
+#sidebar{
+  /* background-color:rgba(47, 54, 97, 0.28); */
+  background-color: #263061;
+}
+.whip{
+  margin-left: 1rem;
+}
+.lytic{
+  border-radius:50px ;
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './../index.css';
 import  whip from '../assets/singin.jpeg';
 
-class Dashnav extends React.Component {
+class Navbar extends React.Component {
     render() { 
         return( 
             <div class="row" id="dash">
@@ -26,4 +26,4 @@ class Dashnav extends React.Component {
     }
 }
  
-export default Dashnav;
+export default Navbar;

@@ -8,8 +8,8 @@ class Analytics extends React.Component {
 
                 <div class="row mb-3">
                     <div class="col-xl-2 col-sm-6 py-2">
-                        <div class="card text-white h-100">
-                            <div class="card-body">
+                        <div class="card text-dark h-100 lytic">
+                            <div class="card-body rounded">
                                 <div class="rotate">
                                     <i class="fa fa-user fa-4x"></i>
                                 </div>
@@ -18,8 +18,8 @@ class Analytics extends React.Component {
                         </div>
                     </div>
                     <div class="col-xl-2 col-sm-6 py-2">
-                        <div class="card  text-white h-100">
-                            <div class="card-body ">
+                        <div class="card text-dark h-100 lytic">
+                            <div class="card-body rounded">
                                 <div class="rotate">
                                     <i class="fa fa-user fa-4x"></i>
                                 </div>
@@ -27,7 +27,7 @@ class Analytics extends React.Component {
                         </div>
                     </div>
                     <div class="col-xl-2 col-sm-6 py-2">
-                        <div class="card text-white  h-100">
+                        <div class="card text-dark  h-100 lytic">
                             <div class="card-body">
                                 <div class="rotate">
                                     <i class="fa fa-list fa-4x"></i>
@@ -37,9 +37,9 @@ class Analytics extends React.Component {
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-sm-6 py-2">
-                        <div class="card text-white  h-100">
-                            <div class="card-body btn-dark">
+                    <div class="col-xl-2 col-sm-6 py-2  ">
+                        <div class="card text-dark  h-100 ">
+                            <div class="card-body btn-dark lytic">
                                 <div class="rotate">
                                     <i class="fa fa-twitter fa-4x"></i>
                                 </div>
@@ -49,7 +49,7 @@ class Analytics extends React.Component {
                         </div>
                     </div>
                     <div class="col-xl-2 col-sm-6 py-2">
-                        <div class="card text-white  h-100">
+                        <div class="card text-dark  h-100 lytic">
                             <div class="card-body">
                                 <div class="rotate">
                                     <i class="fa fa-share fa-4x"></i>
