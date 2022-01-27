@@ -39,7 +39,7 @@ const MainComponent = () => {
                       social<br /><span className='media'> media charts and Playlist Data.</span></b>
                   </h4>
               </div>
-            <button className='btn btn-1 btn-sm'><strong className='search'>Search Artist</strong></button>  
+            <button className='btn btn-2 btn-sm'><strong className='search'>Search Artist</strong></button>  
             </div>
             <div className='img-wrapper'>
               <img className='img-cont' src={bensoul}/>
