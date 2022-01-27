@@ -20,7 +20,7 @@
     color: #4441B0;
  }
 
- .navbar-light .navbar-nav .nav-link {
+ .navbar-light .navbar-nav .nav-link  a{
     color: #4441B0;
 }
 
@@ -31,6 +31,9 @@
   padding: 0;
   overflow-x:hidden ;
   font-family: 'Abhaya Libre', serif;
+}
+.mainbody{
+    padding-bottom: 80px;
 }
 .cont-wrapper {
   display: grid;

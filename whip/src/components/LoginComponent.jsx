@@ -60,4 +60,3 @@ const Switch=({n})=>{
 }
 
 export default Login;
-

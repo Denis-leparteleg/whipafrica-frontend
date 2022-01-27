@@ -15,7 +15,8 @@ import Signup from './SignupComponent';
 const MainComponent = () => {
 
   return (
-    <div class = "">
+    <div>
+    <div class = "mainbody">
       <Header/>
          <div className='cont-wrapper container-fluid'>
            <div className='cont'>
@@ -44,6 +45,7 @@ const MainComponent = () => {
             <div className='img-wrapper'>
               <img className='img-cont' src={bensoul}/>
             </div>
+         </div>
          </div>
          <Footer/>
          {/* <Login/>
