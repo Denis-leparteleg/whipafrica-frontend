@@ -15,9 +15,9 @@ import Signup from './SignupComponent';
 const MainComponent = () => {
 
   return (
-    <div class = "">
+      <div>
       <Header/>
-         <div className='cont-wrapper container-fluid'>
+         <div className='cont-wrapper'>
            <div className='cont'>
               <span className='art'>Evaluate Any <b>ARTISTS</b> Potential using <b>WHIP DATA.</b><br/>
                 Discover breaking through <b>MUSICIANS</b> across <b>AFRICA</b>.
@@ -45,10 +45,13 @@ const MainComponent = () => {
               <img className='img-cont' src={bensoul}/>
             </div>
          </div>
+         
+
          <Footer/>
          {/* <Login/>
          <Signup/> */}
     </div>
+    
   )
 }
 
