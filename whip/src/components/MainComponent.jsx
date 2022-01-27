@@ -15,10 +15,9 @@ import Signup from './SignupComponent';
 const MainComponent = () => {
 
   return (
-    <div>
-    <div class = "mainbody">
+      <div>
       <Header/>
-         <div className='cont-wrapper container-fluid'>
+         <div className='cont-wrapper'>
            <div className='cont'>
               <span className='art'>Evaluate Any <b>ARTISTS</b> Potential using <b>WHIP DATA.</b><br/>
                 Discover breaking through <b>MUSICIANS</b> across <b>AFRICA</b>.
@@ -40,17 +39,19 @@ const MainComponent = () => {
                       social<br /><span className='media'> media charts and Playlist Data.</span></b>
                   </h4>
               </div>
-            <button className='btn btn-1 btn-sm'><strong className='search'>Search Artist</strong></button>  
+            <button className='btn btn-2 btn-sm'><strong className='search'>Search Artist</strong></button>  
             </div>
             <div className='img-wrapper'>
               <img className='img-cont' src={bensoul}/>
             </div>
          </div>
-         </div>
+         
+
          <Footer/>
          {/* <Login/>
          <Signup/> */}
     </div>
+    
   )
 }
 
