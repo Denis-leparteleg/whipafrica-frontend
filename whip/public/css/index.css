@@ -23,7 +23,7 @@
 
 
 /* Header footer styles */
-#row{
+/* #row{
     background-color: #4441B0;
     color: white;
     padding: 50px;
@@ -47,7 +47,7 @@
 
 
 /* body styles */
-* {
+/* * {
   margin: 0;
   padding: 0;
   overflow-x:hidden ;
@@ -176,16 +176,8 @@
     font-size: 30px;
   }
   .disc{
-    font-size: 30px;
-  }
-.row{
-  background-color: #4441B0;
-  color: white;
-  padding: 50px;
-::-webkit-scrollbar {
-/* ::-webkit-scrollbar {
-  display: none;
-} */
+    font-size: 30px; */
+  
 
 * {
   margin: 0;
@@ -257,13 +249,13 @@
 
 }
 
-.btn-1 {
-  background-color: #4441B0;
-  color: #ffffff;
-  margin-left: 42%;
-  margin-top: 5px;
-  border-radius: 20px;
-  width: 26%;
+.btn-2 {
+  background-color: #4441B0 !important;
+  color: #ffffff !important;
+  margin-left: 42% !important;
+  margin-top: 5px !important;
+  border-radius: 20px !important;
+  width: 26% !important;
 }
 
 .art {
@@ -287,8 +279,9 @@
 }
 
 .p-tag {
-  margin-left: 35%;
+  margin-left: 47%;
 }
+
 
 @media only screen and (min-width: 1400px) {
   .cont{
@@ -327,10 +320,10 @@
     border-radius: 748px 0 0 748px;
   }
   
-  .btn-1 {
-    margin-left: 31%;
-    margin-top: 15px;
-    width: 26%;
+  .btn-2 {
+    margin-left: 31% !important;
+    margin-top: 15px !important;
+    width: 26% !important;
   }
   
   .media {
@@ -345,5 +338,9 @@
   }
   .disc{
     font-size: 30px;
+  }
+
+  .p-tag {
+    margin-left: 43%;
   }
 }
