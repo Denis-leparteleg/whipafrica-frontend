@@ -39,8 +39,11 @@ function Login(){
                 </p>
                 <p>
                     Already a member?
-                    <button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={()=>{navv(1)}}>SIGN UP</button>
+                
                 </p>
+                <span>
+                <button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={()=>{navv(1)}}>SIGN UP</button>
+                </span>
             </form>
             </div>x
             <div class = "col-md-3"></div>

@@ -1,6 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
+import Login from "./LoginComponent";
 
 function Signup(){
+
+    const [page, setPage] = useState(0);
+
+    function nav(n){
+        console.log(n)
+        setPage(n);
+    }
     return(
         <div class = "container">
             <div class = "row">
@@ -31,14 +39,25 @@ function Signup(){
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
-                    Already registered <a href="#">sign in?</a>
+                    Already registered? 
+                    <br></br>
+                    <span><button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={()=>{nav(2)}}>SIGN IN</button></span>
                 </p>
             </form>
             </div>
             <div class= "col-md-3"></div>
             </div>
+            <Switch n={page}/>
         </div>
     )
+}
+const Switch=({n})=>{
+    if (n==2){
+        return (
+            <div><Login/></div>
+        );
+    }
+    return null;
 }
 
 export default Signup;

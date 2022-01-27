@@ -42,7 +42,7 @@ function Footer(){
                 </div>
             </div>
             <div class = "row" id="row">
-                    <div class = "col-md-12 text-center">
+                    <div class = "col-md-12 text-center footerend">
                         <p>Are you a - <span>Manager</span>- <span>Music label</span> - <span>Agent</span> - <span>Promoter</span> or an <span>Artist</span>?</p>
                         <p><span>DISCOVER. </span> <span>ACCESS. </span> <span>EVALUATE DATA. </span></p>
                         {/* <Router> */}
