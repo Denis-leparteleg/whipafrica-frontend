@@ -1,22 +1,14 @@
 import React, {useState} from "react";
 import Login from "./LoginComponent";
-import { useHistory } from "react-router-dom";
-import {
-    Container,
-    Button,
-    Row,
-    Col,
-    Form,
-    FormControl
-  } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
 function Signup(){
+    const navigate = useNavigate();
 
-    const [page, setPage] = useState(0);
-
-    function nav(n){
-        console.log(n)
-        setPage(n);
+    const logIn = () => {
+        navigate("/login");
     }
+
     return(
         <div class = "container">
             <div class = "row">
@@ -47,59 +39,15 @@ function Signup(){
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
-                    Already registered?<span><a class = "mt-4 " type="submit" onClick={()=>{nav(2)}}>SIGN IN</a></span>
+                    Already registered? 
+                    <br></br>
+                    <span><button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={logIn}>SIGN IN</button></span>
                 </p>
             </form>
             </div>
             <div class= "col-md-3"></div>
             </div>
-            <Switch n={page}/>
         </div>
     )
 }
-const Switch=({n})=>{
-    if (n==2){
-        return (
-            <div><Login/></div>
-        );
-    }
-    return null;
-}
-
 export default Signup;
-
-// import React, { useContext } from "react";
-// import {
-//   BoldLink,
-//   BoxContainer,
-//   FormContainer,
-//   Input,
-//   MutedLink,
-//   SubmitButton,
-// } from "./common";
-// import { Marginer } from "../marginer";
-// import { AccountContext } from "./accountContext";
-// ​
-// export function Signup(props) {
-//   const { switchToSignin } = useContext(AccountContext);
-// ​
-//   return (
-//     <BoxContainer>
-//       <FormContainer>
-//         <Input type="text" placeholder="Full Name" />
-//         <Input type="email" placeholder="Email" />
-//         <Input type="password" placeholder="Password" />
-//         <Input type="password" placeholder="Confirm Password" />
-//       </FormContainer>
-//       <Marginer direction="vertical" margin={10} />
-//       <SubmitButton type="submit">Signup</SubmitButton>
-//       <Marginer direction="vertical" margin="1em" />
-//       <MutedLink href="#">
-//         Already have an account?
-//         <BoldLink href="#" onClick={switchToSignin}>
-//           Signin
-//         </BoldLink>
-//       </MutedLink>
-//     </BoxContainer>
-//   );
-// }

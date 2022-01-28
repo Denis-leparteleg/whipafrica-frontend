@@ -1,13 +1,12 @@
 import React ,{useState} from "react";
-// import { Link } from react-router-dom
 import Signup from "./SignupComponent";
+import { useNavigate } from "react-router-dom";
 
 function Login(){
-    const [page, setPage] = useState(0);
+    const navigate = useNavigate();
 
-    function navv(n){
-        console.log(n)
-        setPage(n);
+    const signUp = () => {
+        navigate("/signup");
     }
     return(
         <div class = "container">
@@ -39,29 +38,19 @@ function Login(){
                     Forgot <a href="#">password?</a>
                 </p>
                 <p>
-                    Don't have account?
+                    Already a member?
                 
                 </p>
                 <span>
-                <a class = "mt-4" type="submit" onClick={()=>{navv(1)}}>SIGN UP</a>
-                {/* <a class = "mt-4" type="submit" onClick={Link}>SIGN UP</a> */}
+                <button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={signUp}>SIGN UP</button>
                 </span>
             </form>
             </div>x
             <div class = "col-md-3"></div>
         </div>
-        <Switch n={page}/>
         </div>
     );
 };
- 
-const Switch=({n})=>{
-    if (n==1){
-        return (
-            <div><Signup/></div>
-        );
-    }
-    return null;
-}
+
 
 export default Login;

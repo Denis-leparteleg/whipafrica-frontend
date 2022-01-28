@@ -48,8 +48,6 @@ const MainComponent = () => {
          
 
          <Footer/>
-         {/* <Login/>
-         <Signup/> */}
     </div>
     
   )
