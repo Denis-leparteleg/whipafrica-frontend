@@ -1,4 +1,5 @@
 import React ,{useState} from "react";
+// import { Link } from react-router-dom
 import Signup from "./SignupComponent";
 
 function Login(){
@@ -38,11 +39,12 @@ function Login(){
                     Forgot <a href="#">password?</a>
                 </p>
                 <p>
-                    Already a member?
+                    Don't have account?
                 
                 </p>
                 <span>
-                <button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={()=>{navv(1)}}>SIGN UP</button>
+                <a class = "mt-4" type="submit" onClick={()=>{navv(1)}}>SIGN UP</a>
+                {/* <a class = "mt-4" type="submit" onClick={Link}>SIGN UP</a> */}
                 </span>
             </form>
             </div>x

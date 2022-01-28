@@ -1,6 +1,14 @@
 import React, {useState} from "react";
 import Login from "./LoginComponent";
-
+import { useHistory } from "react-router-dom";
+import {
+    Container,
+    Button,
+    Row,
+    Col,
+    Form,
+    FormControl
+  } from "react-bootstrap";
 function Signup(){
 
     const [page, setPage] = useState(0);
@@ -39,9 +47,7 @@ function Signup(){
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
-                    Already registered? 
-                    <br></br>
-                    <span><button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={()=>{nav(2)}}>SIGN IN</button></span>
+                    Already registered?<span><a class = "mt-4 " type="submit" onClick={()=>{nav(2)}}>SIGN IN</a></span>
                 </p>
             </form>
             </div>
