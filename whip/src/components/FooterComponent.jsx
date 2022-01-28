@@ -1,24 +1,23 @@
 import React, {useState} from 'react';
-// import bien from '../images/bien.jpeg';
-// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Login from './LoginComponent';
-import Signup from './SignupComponent';
-
-
-function submit(){
-    console.log("Sign up has been clicked");
-}
-
+import { useHistory } from "react-router-dom";
+import {
+    Container,
+    Button,
+    Row,
+    Col,
+    Form,
+    FormControl
+  } from "react-bootstrap";
 function Footer(){
-    const [page, setPage] = useState(0);
+    const history = useHistory();
 
-    function nav(n){
-        console.log(n)
-        setPage(n);
+    const routeChange = () =>{ 
+        let path = `signup`; 
+        history.push(path);
     }
-      return(
-          <div class="footer">
-            <div class = "container">
+    return(
+        <div class="footer">
+        <div class = "container">
                 <div class="card-group">
                     <div class="card">
                         {/* <img src={require('../images/bien.jpeg').default} width="100" height="50" />
@@ -53,21 +52,23 @@ function Footer(){
                         {/* </Router> */}
                         {/* <button class = "btn mt-4 btn-light btn-lg rounded-pill" type="submit" onClick={()=>{nav(1)}}>SIGN UP</button>
                         <p>Already a user??</p> */}
-                        <button class = "btn mt-4 btn-light btn-lg rounded-pill" type="submit" onClick={()=>{nav(2)}}>SIGN IN</button>
                         <p> &copy; COPYRIGHT 2022 WHIP AFRICA MUSIC</p>
+                        <Container>
+                        <Row>
+                            <Col xs="">                      
+                            <Button className="px-4 btn mt-4 btn-light btn-lg rounded-pill"
+                                onClick={routeChange}
+                                >
+                                Signup
+                                </Button>
+                            </Col>
+                        </Row>
+                        </Container>
                     </div>
             </div>
-            <Switch n={page}/>
-        </div>
-      ) 
+        
+    </div>
+    ) 
 }
 
-const Switch=({n})=>{
-    if (n == 2){
-        return (
-            <div><Login/></div>
-        )
-    }
-    return null;
-} 
 export default Footer;
