@@ -8,6 +8,26 @@ function Login(){
     const signUp = () => {
         navigate("/signup");
     }
+
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [user, setUser] = useState()
+
+    const axios = require('axios');
+
+async function handleSubmit(e) {
+    e.preventDefault();
+
+  let payload = { username, password};
+
+  let res = await axios.post('http://127.0.0.1:8000/api/login/', payload);
+
+    let data = res.data;
+    console.log(data);
+}
+
+handleSubmit();
+
     return(
         <div class = "container">
         <div class = "row">
@@ -16,14 +36,19 @@ function Login(){
            <form>
                 <h3>Sign In</h3>
 
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label>Email address</label>
                     <input type="email" className="form-control" placeholder="Enter email" />
+                </div> */}
+
+                <div className="form-group">
+                    <label>Username</label>
+                    <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" />
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" className="form-control" placeholder="Enter password" />
+                    <input type="password" value={password} onChange={({ target }) => setPassword(target.value)}  className="form-control" placeholder="Enter password" />
                 </div>
 
                 <div className="form-group">
@@ -33,7 +58,7 @@ function Login(){
                     </div>
                 </div>
 
-                <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-block">Submit</button>
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
