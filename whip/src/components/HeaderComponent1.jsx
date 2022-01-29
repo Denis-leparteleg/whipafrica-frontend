@@ -1,9 +1,15 @@
 import React from 'react';
 import Navbar from 'react-bootstrap/Navbar'
 import Login from './LoginComponent';
+import { useNavigate } from 'react-router-dom';
 
 
 function Header1(){
+    const navigate = useNavigate();
+
+    const home = () => {
+        navigate("/");
+    }
       return(
           <div>
             <div class = "container">
@@ -17,7 +23,7 @@ function Header1(){
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav ml-auto" >
                     <li class="nav-item active">
-                        <a class="nav-link " id="home" href="#">HOME<span class="sr-only"></span></a>
+                        <a class="nav-link " id="home" onClick={home}  href="">HOME<span class="sr-only"></span></a>
                     </li>
                     </ul>
                 </div>
