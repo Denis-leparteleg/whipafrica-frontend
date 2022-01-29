@@ -2,6 +2,8 @@ import React, {useState} from "react";
 import Login from "./LoginComponent";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Footer1 from "./FooterComponent1";
+import Header1 from "./HeaderComponent1";
 
 function Signup(){
     const navigate = useNavigate();
@@ -34,9 +36,10 @@ function Signup(){
   }
 
     return(
-        <div class = "container">
-            <div class = "row">
-            <div class = "col-md-3"></div>
+        <div>
+            <Header1/>
+            <div class = "row container">
+            <div class = "col-md-4"></div>
             <div class = "col-md-6">
             <form  >
                 <h3>Sign Up</h3>
@@ -65,8 +68,11 @@ function Signup(){
                     <label>Password</label>
                     <input type="password" value={password} onChange={({ target }) => setPassword(target.value)}  className="form-control" placeholder="Enter password" />
                 </div>
+                <br></br>
 
-                <button type="submit" className="btn btn-primary btn-block" onClick={handleSubmit}>Sign Up</button>
+                <button type="submit" className="btn btn-primary btn-block btn-lg rounded-pill" onClick={handleSubmit}>SIGN UP</button>
+                <br></br>
+
                 <p className="forgot-password text-right">
                     Already registered? 
                     <br></br>
@@ -74,8 +80,9 @@ function Signup(){
                 </p>
             </form>
             </div>
-            <div class= "col-md-3"></div>
+            <div class= "col-md-2"></div>
             </div>
+            <Footer1/>
         </div>
     )
 }
