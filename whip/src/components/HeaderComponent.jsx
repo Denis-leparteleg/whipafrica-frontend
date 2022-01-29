@@ -8,7 +8,11 @@ function Header(){
     const navigate = useNavigate();
 
     const home = () => {
-        navigate("/");
+        navigate("/");}
+
+    const signUp = () => {
+            navigate("/signup");
+        
     }
       return(
           <div>
@@ -26,7 +30,7 @@ function Header(){
                         <a class="nav-link" onClick={home} id="home" href="">HOME<span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" id="art" href="">ARTIST DASHBOARD</a>
+                        <a class="nav-link" onClick={signUp} id="art" href="">ARTIST DASHBOARD</a>
                     </li>
                     </ul>
                 </div>
