@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App';
 import Login from './components/LoginComponent'
 import Signup from './components/SignupComponent'
+import Dashboard from './components/DashboardComponent'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,6 +21,7 @@ ReactDOM.render(
       <Route exact path="/" element={<App />}/>
       <Route path = "/signup"element={<Signup />} />
       <Route path = "/login" element={<Login />} />
+      <Route path = "/dashboard" element = {<Dashboard/>} />
     </Routes>
   </BrowserRouter>,
   </React.StrictMode>,

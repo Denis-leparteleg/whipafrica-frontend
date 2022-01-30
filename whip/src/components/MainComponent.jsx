@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import bensoul from "../assets/bensoul.jpeg";
 import nviiri from "../assets/nviiri.jpeg";
 import wahu from "../assets/wahu.jpeg";
@@ -12,9 +13,9 @@ import Signup from './SignupComponent';
 
 
 
-const MainComponent = () => {
 
-  return (
+const MainComponent = () => {
+ return (
       <div>
       <Header/>
          <div className='cont-wrapper'>

@@ -4,15 +4,11 @@ import Login from './LoginComponent';
 import { useNavigate } from 'react-router-dom';
 
 
-function Header(){
+function Header1(){
     const navigate = useNavigate();
 
     const home = () => {
-        navigate("/");}
-
-    const signUp = () => {
-            navigate("/signup");
-        
+        navigate("/");
     }
       return(
           <div>
@@ -27,10 +23,7 @@ function Header(){
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                     <ul class="navbar-nav ml-auto" >
                     <li class="nav-item active">
-                        <a class="nav-link" onClick={home} id="home" href="">HOME<span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" onClick={signUp} id="art" href="">ARTIST DASHBOARD</a>
+                        <a class="nav-link " id="home" onClick={home}  href="">HOME<span class="sr-only"></span></a>
                     </li>
                     </ul>
                 </div>
@@ -40,4 +33,4 @@ function Header(){
           </div>
       )
 }
-export default Header;
+export default Header1;

@@ -1,6 +1,8 @@
 import React ,{useState} from "react";
 import Signup from "./SignupComponent";
 import { useNavigate } from "react-router-dom";
+import Footer1 from "./FooterComponent1";
+import Header1 from "./HeaderComponent1";
 
 function Login(){
     const navigate = useNavigate();
@@ -29,8 +31,9 @@ async function handleSubmit(e) {
 handleSubmit();
 
     return(
-        <div class = "container">
-        <div class = "row">
+        <div>
+            <Header1/>
+        <div class = "row container">
         <div class = "col-md-3"></div>
         <div class = "col-md-6">
            <form>
@@ -58,21 +61,21 @@ handleSubmit();
                     </div>
                 </div>
 
-                <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-block">Submit</button>
+                <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-lg rounded-pill">SIGN IN</button>
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
                 <p>
                     Already a member?
-                
                 </p>
                 <span>
                 <button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={signUp}>SIGN UP</button>
                 </span>
             </form>
-            </div>x
+            </div>
             <div class = "col-md-3"></div>
         </div>
+        <Footer1></Footer1>
         </div>
     );
 };
