@@ -1,7 +1,7 @@
 import React from "react";
 import DashboardSideNav from "./DashboardSideNav";
 
-const Dashboard= ()=>{
+const DashboardComponent= ()=>{
     return(
         <div>
             <DashboardSideNav/>
@@ -9,4 +9,4 @@ const Dashboard= ()=>{
     )
 };
 
-export default Dashboard;
+export default DashboardComponent;

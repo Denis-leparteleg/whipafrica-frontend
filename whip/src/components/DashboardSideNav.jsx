@@ -9,12 +9,12 @@ const DashboardSideNav= ()=>{
             {/* The sidebar  */}
             <div class="sidebar">
                 <a class="navbar-brand" href="#">
-                    <img class="logo" src="../images/logo2.jpeg" width="45" height="40" alt=""/><br></br>
+                    <img class="logo" src="../images/logo2.jpeg" height = "50px" width = "50px" alt=""/><br></br>
                     <span>whip.</span>
                 </a>
-                <a class="active" href="#home"><i class="fa fa-fw fa-home"></i> Metrics</a>
-                <a href="#news">Music</a>
-                <a href="#contact">Demographics</a>
+                <a class="active" href="#home"><i class="fa fa-fw fa-home"></i> Fresh talent</a>
+                <a href="#news">FAQs</a>
+                <a href="#contact">Settings</a>
             </div>
 
             {/* Page content */}

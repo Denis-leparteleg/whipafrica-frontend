@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Footer1 from "./FooterComponent1";
 import Header1 from "./HeaderComponent1";
+import { Link } from "react-router-dom"
 
 function Signup(){
     const navigate = useNavigate();
@@ -27,6 +28,10 @@ function Signup(){
 
         let data = res.data;
         console.log(data);
+
+        if (data){
+            logIn();
+        }
         }
 
         handleSubmit();
@@ -74,9 +79,8 @@ function Signup(){
                 <br></br>
 
                 <p className="forgot-password text-right">
-                    Already registered? 
-                    <br></br>
-                    <span><button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={logIn}>SIGN IN</button></span>
+                    Already registered? <Link to="/login">Login</Link>
+                    {/* <span><button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={logIn}>SIGN IN</button></span> */}
                 </p>
             </form>
             </div>
