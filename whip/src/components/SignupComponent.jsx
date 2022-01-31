@@ -5,6 +5,7 @@ import axios from "axios";
 import Footer1 from "./FooterComponent1";
 import Header1 from "./HeaderComponent1";
 import { Link } from "react-router-dom"
+import PropTypes from 'prop-types';
 
 function Signup(){
     const navigate = useNavigate();
@@ -15,6 +16,7 @@ function Signup(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setError] = useState({});
     const [user, setUser] = useState()
 
     const [usernameErr, setUsernameErr] = useState({});
@@ -29,26 +31,29 @@ function Signup(){
 
         let payload = { username, password};
 
-        let res = await axios.post('http://127.0.0.1:8000/api/register/', payload);
+        axios.post('http://127.0.0.1:8000/api/register/', payload)
+        .then(function (response) {
+            let data = response.data;
+            // console.log(data);
 
-        let data = res.data;
-        console.log(data);
-
-        if (isValid){
-            logIn();
-        }
-        }
+            if (data){
+                logIn();
+            }
+          })
+        .catch(function (error) {
+        if (error.response) {
+            console.log(error.response.data)
+            setError(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+        }});
+       };
 
         handleSubmit();
 
         const formValidation = () => {
             const usernameErr = {};
             let isValid = true;
-
-            if(username == username){
-                usernameErr.usernameEqual = "Username already exists"; 
-                isValid = false;
-             }
 
             if(username.trim().length < 5){
                usernameErr.usernameShort = "Username is short"; 
@@ -78,14 +83,16 @@ function Signup(){
                 <div className="form-group">
                     <label>Username</label>
                     <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" />
-                    {Object.keys(usernameErr).map((key)=>{
-                        return <div style={{color:'red'}}>{usernameErr[key]}</div>
-                    })}
+                    {
+                        Object.keys(errors).map((key)=>
+                        <div style={{color:'red'}}>{errors[key]}</div>
+                        )
+                    }
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" value={password} onChange={({ target }) => setPassword(target.value)}  className="form-control" placeholder="Enter password" />
+                    <input type="password" value={password} onChange={({ target }) => setPassword(target.value)}  className="form-control" placeholder="Create a password" />
                 </div>
                 <br></br>
 
