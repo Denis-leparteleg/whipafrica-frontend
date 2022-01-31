@@ -17,10 +17,15 @@ function Signup(){
     const [password, setPassword] = useState("");
     const [user, setUser] = useState()
 
+    const [usernameErr, setUsernameErr] = useState({});
+
+
         const axios = require('axios');
 
         async function handleSubmit(e) {
         e.preventDefault();
+
+        const isValid = formValidation();
 
         let payload = { username, password};
 
@@ -29,12 +34,33 @@ function Signup(){
         let data = res.data;
         console.log(data);
 
-        if (data){
+        if (isValid){
             logIn();
         }
         }
 
         handleSubmit();
+
+        const formValidation = () => {
+            const usernameErr = {};
+            let isValid = true;
+
+            if(username == username){
+                usernameErr.usernameEqual = "Username already exists"; 
+                isValid = false;
+             }
+
+            if(username.trim().length < 5){
+               usernameErr.usernameShort = "Username is short"; 
+               isValid = false;
+            }
+            if(username.trim().length > 10){
+                usernameErr.usernameLong = "Username is too Long"; 
+                isValid = false;
+             }
+             setUsernameErr(usernameErr);
+             return isValid;
+        }
 // if there's a user show the message below
   if (user) {
     return <div>{user.name} is loggged in</div>;
@@ -49,25 +75,13 @@ function Signup(){
             <form  >
                 <h3>Sign Up</h3>
 
-                {/* <div className="form-group">
-                    <label>First name</label>
-                    <input type="text" className="form-control" placeholder="First name" />
-                </div>
-
-                <div className="form-group">
-                    <label>Last name</label>
-                    <input type="text" className="form-control" placeholder="Last name" />
-                </div> */}
-
                 <div className="form-group">
                     <label>Username</label>
                     <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" />
+                    {Object.keys(usernameErr).map((key)=>{
+                        return <div style={{color:'red'}}>{usernameErr[key]}</div>
+                    })}
                 </div>
-
-                {/* <div className="form-group">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
-                </div> */}
 
                 <div className="form-group">
                     <label>Password</label>
@@ -80,7 +94,6 @@ function Signup(){
 
                 <p className="forgot-password text-right">
                     Already registered? <Link to="/login">Login</Link>
-                    {/* <span><button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={logIn}>SIGN IN</button></span> */}
                 </p>
             </form>
             </div>

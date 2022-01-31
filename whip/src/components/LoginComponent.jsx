@@ -17,24 +17,41 @@ function Login(){
     const [password, setPassword] = useState("");
     const [user, setUser] = useState()
 
+    const [usernameErr, setUsernameErr] = useState({});
+
+
     const axios = require('axios');
 
 async function handleSubmit(e) {
     e.preventDefault();
 
-  let payload = { username, password};
+    const isValid = formValidation();
 
-  let res = await axios.post('http://127.0.0.1:8000/api/login/', payload);
+    let payload = { username, password};
 
-    let data = res.data;
-    console.log(data);
+    let res = await axios.post('http://127.0.0.1:8000/api/login/', payload);
 
-    if (data){
-        dashboard()
-    }
+        let data = res.data;
+        console.log(data);
+
+        if (isValid){
+            dashboard()
+        }
 }
 
-handleSubmit();
+    handleSubmit();
+    const formValidation = () => {
+        const usernameErr = {};
+        let isValid = true;
+
+        if(!username){
+            usernameErr.usernameEqual = "Username does not exists"; 
+            isValid = false;
+         }
+
+        setUsernameErr(usernameErr);
+        return isValid;
+    }
 
     return(
         <div>
@@ -53,6 +70,9 @@ handleSubmit();
                 <div className="form-group">
                     <label>Username</label>
                     <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" />
+                    {Object.keys(usernameErr).map((key)=>{
+                        return <div style={{color:'red'}}>{usernameErr[key]}</div>
+                    })}
                 </div>
 
                 <div className="form-group">
