@@ -38,7 +38,7 @@ handleSubmit();
 
     return(
         <div>
-            <Header1/>
+            {/* <Header1/> */}
         <div class = "row container">
         <div class = "col-md-3"></div>
         <div class = "col-md-6">
@@ -78,7 +78,7 @@ handleSubmit();
             </div>
             <div class = "col-md-3"></div>
         </div>
-        <Footer1></Footer1>
+        {/* <Footer1></Footer1> */}
         </div>
     );
 };
