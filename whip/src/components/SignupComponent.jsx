@@ -34,7 +34,7 @@ function Signup(){
         axios.post('http://127.0.0.1:8000/api/register/', payload)
         .then(function (response) {
             let data = response.data;
-            // console.log(data);
+            console.log(data);
 
             if (data){
                 logIn();
@@ -42,10 +42,10 @@ function Signup(){
           })
         .catch(function (error) {
         if (error.response) {
-            console.log(error.response.data)
+            setError(error.response.data)
             setError(error.response.data);
-            console.log(error.response.status);
-            console.log(error.response.headers);
+            setError(error.response.status);
+            setError(error.response.headers);
         }});
        };
 
