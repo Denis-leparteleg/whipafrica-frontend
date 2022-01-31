@@ -15,6 +15,7 @@ function Login(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setError] = useState({});
     const [user, setUser] = useState()
 
     const [usernameErr, setUsernameErr] = useState({});
@@ -29,14 +30,24 @@ function Login(){
 
         let payload = { username, password};
 
-        let res = await axios.post('http://127.0.0.1:8000/api/login/', payload);
+        axios.post('http://127.0.0.1:8000/api/login/', payload)
 
-            let data = res.data;
+        .then(function (response) {
+            let data = response.data;
             console.log(data);
 
-            if (isValid){
+            if (data){
                 dashboard()
             }
+          })
+        .catch(function (error) {
+        if (error.response) {
+            setError(error.response.data)
+            // setError(error.response.data);
+            // setError(error.response.status);
+            // setError(error.response.headers);
+        }});
+            
     }
 
     handleSubmit();
@@ -70,9 +81,14 @@ function Login(){
                 <div className="form-group">
                     <label>Username</label>
                     <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" />
-                    {Object.keys(usernameErr).map((key)=>{
+                    {
+                        Object.keys(errors).map((key)=>
+                        <div style={{color:'red'}}>{errors[key]}</div>
+                        )
+                    }
+                    {/* {Object.keys(usernameErr).map((key)=>{
                         return <div style={{color:'red'}}>{usernameErr[key]}</div>
-                    })}
+                    })} */}
                 </div>
 
                 <div className="form-group">
