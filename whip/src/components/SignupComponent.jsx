@@ -42,7 +42,7 @@ function Signup(){
 
     return(
         <div>
-            <Header1/>
+            {/* <Header1/> */}
             <div class = "row container">
             <div class = "col-md-4"></div>
             <div class = "col-md-6">
@@ -86,7 +86,7 @@ function Signup(){
             </div>
             <div class= "col-md-2"></div>
             </div>
-            <Footer1/>
+            {/* <Footer1/> */}
         </div>
     )
 }
