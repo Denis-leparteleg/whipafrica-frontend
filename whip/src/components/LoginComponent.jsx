@@ -22,30 +22,30 @@ function Login(){
 
     const axios = require('axios');
 
-async function handleSubmit(e) {
-    e.preventDefault();
+    async function handleSubmit(e) {
+        e.preventDefault();
 
-    const isValid = formValidation();
+        const isValid = formValidation();
 
-    let payload = { username, password};
+        let payload = { username, password};
 
-    let res = await axios.post('http://127.0.0.1:8000/api/login/', payload);
+        let res = await axios.post('http://127.0.0.1:8000/api/login/', payload);
 
-        let data = res.data;
-        console.log(data);
+            let data = res.data;
+            console.log(data);
 
-        if (isValid){
-            dashboard()
-        }
-}
+            if (isValid){
+                dashboard()
+            }
+    }
 
     handleSubmit();
     const formValidation = () => {
         const usernameErr = {};
         let isValid = true;
 
-        if(!username){
-            usernameErr.usernameEqual = "Username does not exists"; 
+        if(username != username){
+            usernameErr.usernameNotEqual = "Username does not exists"; 
             isValid = false;
          }
 
