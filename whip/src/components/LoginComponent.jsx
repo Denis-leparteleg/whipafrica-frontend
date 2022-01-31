@@ -32,6 +32,14 @@ async function handleSubmit(e) {
     if (data){
         dashboard()
     }
+    var a = new Array();
+    var up1 = new Object();
+    up1={
+        username:username,
+        password:password
+       };
+    a.push(up1);
+    localStorage.setItem('all_users',JSON.stringify(a));
 }
 
 handleSubmit();
@@ -52,12 +60,12 @@ handleSubmit();
 
                 <div className="form-group">
                     <label>Username</label>
-                    <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" />
+                    <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" id= "uname" />
                 </div>
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" value={password} onChange={({ target }) => setPassword(target.value)}  className="form-control" placeholder="Enter password" />
+                    <input type="password" value={password} onChange={({ target }) => setPassword(target.value)}  className="form-control" placeholder="Enter password" id = "psw" />
                 </div>
 
                 <div className="form-group">
