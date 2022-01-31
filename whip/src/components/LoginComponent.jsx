@@ -3,12 +3,14 @@ import Signup from "./SignupComponent";
 import { useNavigate } from "react-router-dom";
 import Footer1 from "./FooterComponent1";
 import Header1 from "./HeaderComponent1";
+import { Link } from "react-router-dom";
+import DashboardComponent from "./DashboardComponent";
 
 function Login(){
     const navigate = useNavigate();
 
-    const signUp = () => {
-        navigate("/signup");
+    const dashboard = () => {
+        navigate("/dashboard");
     }
 
     const [username, setUsername] = useState("");
@@ -26,6 +28,10 @@ async function handleSubmit(e) {
 
     let data = res.data;
     console.log(data);
+
+    if (data){
+        dashboard()
+    }
 }
 
 handleSubmit();
@@ -66,11 +72,8 @@ handleSubmit();
                     Forgot <a href="#">password?</a>
                 </p>
                 <p>
-                    Already a member?
+                    Already a member? <Link to="/signup">Signup</Link>
                 </p>
-                <span>
-                <button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={signUp}>SIGN UP</button>
-                </span>
             </form>
             </div>
             <div class = "col-md-3"></div>
