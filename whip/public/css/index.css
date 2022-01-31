@@ -211,7 +211,7 @@ form .btn-primary{
   margin: 0;
   padding: 0;
   width: 200px;
-  background-color: #f1f1f1;
+  background-color: #4441B0;
   position: fixed;
   height: 100%;
   overflow: auto;
@@ -220,21 +220,25 @@ form .btn-primary{
 /* Sidebar links */
 .sidebar a {
   display: block;
-  color: black;
+  color: #ffffff;
   padding: 16px;
   text-decoration: none;
+}
+.sidebar .navbar-brand{
+  font-weight: bolder;
+  font-size: larger;
 }
 
 /* Active/current link */
 .sidebar a.active {
-  background-color: #04AA6D;
-  color: white;
+  background-color: #ffffff;
+  color: #4441B0;
 }
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
+  background-color: #ffffff;
+  color: #4441B0;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
@@ -261,4 +265,27 @@ div.content {
     text-align: center;
     float: none;
   }
+}
+
+/* styling the icons */
+.fa-fw {
+  text-shadow: 0 0 3px #000;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+/* side bar content */
+.top-left .btn-primary{
+  width: 100%;
+  padding: 5px;
+  background-color: #4441B0;
+}
+.top-left .card-img-top{
+  height: 75px;
+  width: 75px;
+}
+.top-left, .top-left-left, .top-center{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
