@@ -13,37 +13,17 @@ const DashboardContent = ()=>{
 
     async function handleSubmit(e) {
     e.preventDefault();
-
-    // var options = {
-    //     method: 'GET',
-    //     url: 'https://shazam.p.rapidapi.com/search',
-    //     params: {term: searchTerm, locale: 'en-US', offset: '0', limit: '5'},
-    //     headers: {
-    //     }
-    //     };
-    // axios.request(options).then(function (response) {
-    //     console.log(response);
-    //     console.log(response.data.artists.hits);
-    //     setArtist(response?.data?.artists?.hits);
-
-    // }).catch( (error) =>{
-    //     console.log(error)
-    //     console.error(error.response.data);
-    // });
-    // axios(options);
     var options = {
         method: 'GET',
-        url: 'https://spotify23.p.rapidapi.com/search/',
+        url: 'https://songstats.p.rapidapi.com/artists/stats',
         params: {
-          q: {searchTerm},
-          type: 'multi',
-          offset: '0',
-          limit: '10',
-          numberOfTopResults: '5'
+          source: 'all',
+          spotify_artist_id: searchTerm,
+          songstats_artist_id: 'vxk62ige'
         },
         headers: {
-          'x-rapidapi-host': 'spotify23.p.rapidapi.com',
-          'x-rapidapi-key': '0d5e1bc88cmsh44b756ceca88c70p1580d6jsna4720860568f'
+          'x-rapidapi-host': 'songstats.p.rapidapi.com',
+          'x-rapidapi-key': '53f05c0b1amsh90257705c3be42cp14d383jsn20b8197584af'
         }
       };
       
@@ -52,7 +32,8 @@ const DashboardContent = ()=>{
       }).catch(function (error) {
           console.error(error);
       });
-    // handleSubmit();      
+
+    handleSubmit();      
     } 
     
     return(
