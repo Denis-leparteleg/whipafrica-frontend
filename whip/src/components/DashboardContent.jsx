@@ -3,6 +3,7 @@ import axios from "axios";
 
 const DashboardContent = ()=>{
     const [artists, setArtist] = useState([]);
+    const [tracks, setTracks] = useState([]);
     const [searchTerm, setSearchTerm] = useState();
 
     useEffect(() => {
@@ -19,12 +20,19 @@ const DashboardContent = ()=>{
         url: 'https://shazam.p.rapidapi.com/search',
         params: {term: searchTerm, locale: 'en-US', offset: '0', limit: '5'},
         headers: {
+            'x-rapidapi-host': 'shazam.p.rapidapi.com',
+            'x-rapidapi-key': '5627f8a25bmshea5cb0a9f785954p10c77djsndd9e06d038b6'
         }
         };
     axios.request(options).then(function (response) {
-        console.log(response);
-        console.log(response.data.artists.hits);
+        // console.log(response);
+        console.log(response.data);
+        // console.log(response.data.artists.hits);
+        console.log(response.data.tracks.hits);
         setArtist(response?.data?.artists?.hits);
+        setTracks(response?.data?.tracks?.hits);
+
+
 
     }).catch( (error) =>{
         console.log(error)
@@ -68,10 +76,25 @@ const DashboardContent = ()=>{
                     </div>
 
                     <div class = "top-left-left">
-                         <div><img src="../images/bensoul.jpeg" class="card-img-top" alt="..." height = "40px" width="40px"></img></div>
                          <div>
-                         <p>Easin Arafat <i class="fa fa-fw fa-chevron-down"></i></p>
-                         <p>A$R Scout</p>
+                             {/* <img src="../images/bensoul.jpeg" class="card-img-top" alt="..." height = "40px" width="40px"></img> */}
+                             {artists.map((artist) => (
+                                <div key={artist.id} className='card cd-img'>
+                                    <img src={artist.artist.avatar} alt="..." height = "60px" width="60px"/>
+                                </div>
+
+                                ))}
+                             </div>
+                         
+                         <div>
+                         <p>{artists.map((artist) => (
+                                <div key={artist.id}>
+                                    <p>{artist.artist.name}</p>
+                                </div>
+
+                                ))}
+                             <i class="fa fa-fw fa-chevron-down"></i></p>
+                         {/* <p>A$R Scout</p> */}
                          </div>
                     </div>
                 </div>
@@ -79,7 +102,13 @@ const DashboardContent = ()=>{
             <div class="row">
         <div class="col-md-2 offset-md-1">
         <div class="card">
-            <img src="../images/bensoul.jpeg" class="card-img-top" alt="..." height = "250px"></img>
+            {/* <img src="../images/bensoul.jpeg" class="card-img-top" alt="..." height = "250px"></img> */}
+            {artists.map((artist) => (
+            <div key={artist.id} className='card cd-img'>
+                <img src={artist.artist.avatar} className="card-img-top" alt="..." height = "250px" />
+            </div>
+            ))}
+
         </div>
         </div>
         <div class="col-md-2">
@@ -111,11 +140,29 @@ const DashboardContent = ()=>{
             </div>
         </div>
     </div>
-    {artists.map((artist) => (
-            <div key={artist.id} className='card'>
-                <img src={artist.artist.avatar} alt='' />
-            </div>
-            ))}
+                <ul>
+                {tracks.map((track) => (
+                    <li key={track.id} className='card cd-img'>
+                        <h1>{track.track.title} </h1>
+                        <h1>{track.track.url} </h1>
+                    </li>
+                    ))} 
+                </ul>
+
+                {/* <ul>
+                {tracks.map((track) => (
+                    <li key={track.id} className='card cd-img'>
+                        <h1>{track.track.title} </h1>
+                    </li>
+                    ))} 
+                </ul> */}
+                
+                {/* {tracks.map((track) => (
+                    <div key={track.id} className='card cd-img'>
+                        <h1>{track.track.title} </h1>
+                    </div>
+
+                    ))} */}
 
         </div>
     )
