@@ -3,9 +3,11 @@ import Login from './LoginComponent';
 import Signup from './SignupComponent';
 import { useNavigate } from "react-router-dom";
 import {Modal, Button} from 'react-bootstrap';
+import { useLocation } from 'react-router-dom'
 
 function MyVerticallyCenteredModal(props) {
     // const [isLoggedIn, setisLoggedIn] = useState(false);
+    
   return (
     <Modal
       {...props}
@@ -38,6 +40,8 @@ function MyVerticallyCenteredModal(props) {
 
 const Footer = ()=>{
     const navigate = useNavigate();
+    const location = useLocation();
+    console.log(location)
 
     const signUp = () => {
         navigate("/signup");
@@ -79,9 +83,9 @@ const Footer = ()=>{
                         <p> &copy; COPYRIGHT 2022 WHIP AFRICA MUSIC</p>
                     </div>
                     <MyVerticallyCenteredModal
-                      show={modalShow}
-                      onHide={() => setModalShow(false)}
-                      isSignup={true}
+                      show={(location.pathname == '/login' || location.pathname=='/signup') || modalShow}
+                      onHide={() => setModalShow(false) }
+                      isSignup={location.pathname=='/signup'}
                     //   isSignup={() => setisSignup(true)}
                     />
             </div>

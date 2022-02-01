@@ -3,6 +3,7 @@ import axios from "axios";
 
 const DashboardContent = ()=>{
     const [artists, setArtist] = useState([]);
+    const [searchTerm, setSearchTerm] = useState();
 
     useEffect(() => {
         handleSubmit();
@@ -16,16 +17,17 @@ const DashboardContent = ()=>{
     var options = {
         method: 'GET',
         url: 'https://shazam.p.rapidapi.com/search',
-        params: {term: 'kiss the rain', locale: 'en-US', offset: '0', limit: '5'},
+        params: {term: searchTerm, locale: 'en-US', offset: '0', limit: '5'},
         headers: {
         }
         };
     axios.request(options).then(function (response) {
         console.log(response);
-        // console.log(response.data);
-        setArtist(response.data);
+        console.log(response.data.artists.hits);
+        setArtist(response?.data?.artists?.hits);
 
-    }).catch(function (error) {
+    }).catch( (error) =>{
+        console.log(error)
         console.error(error.response.data);
     });
     axios(options);
@@ -54,10 +56,11 @@ const DashboardContent = ()=>{
                         </form>
 
                     </div> */}
+
                     <div class="search-container">
                         <form method="get">
                             <label for="song"></label>
-                            <input type="text" value={artists}  onChange={({ target }) => setArtist(target.value)} className="form-control" placeholder="Search for a song or artist" />
+                            <input type="text" value={searchTerm}  onChange={({ target }) => setSearchTerm(target.value)} className="form-control" placeholder="Search for a song or artist" />
                             <button class="btn btn-primary search-btn" type="submit" onClick={handleSubmit}><span>Search for artist</span></button>
 
                         </form>
@@ -109,8 +112,8 @@ const DashboardContent = ()=>{
         </div>
     </div>
     {artists.map((artist) => (
-            <div className='card'>
-                <img src={artist.avatar} alt='' />
+            <div key={artist.id} className='card'>
+                <img src={artist.artist.avatar} alt='' />
             </div>
             ))}
 
