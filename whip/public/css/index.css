@@ -20,6 +20,10 @@
   margin-top: 5%;
 }
 
+.cd-img{
+  border-radius:20px;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre&family=Roboto:wght@300;400;500;700;900&display=swap');
 * {
   margin: 0;
