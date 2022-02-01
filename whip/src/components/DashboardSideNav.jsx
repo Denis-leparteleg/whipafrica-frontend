@@ -13,8 +13,8 @@ const DashboardSideNav= ()=>{
                     <span>whip.</span>
                 </a>
                 <a class="active" href="#home"><i class="fa fa-fw fa-home"></i> Fresh talent</a>
-                <a href="#news">FAQs</a>
-                <a href="#contact">Settings</a>
+                <a href="#news"> <i class="fa fa-fw fa-cogs"></i>FAQs</a>
+                <a href="#contact"><i class="fa fa-fw fa-cog"></i>Settings</a>
             </div>
 
             {/* Page content */}

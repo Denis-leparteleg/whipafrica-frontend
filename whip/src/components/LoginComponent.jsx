@@ -50,6 +50,16 @@ function Login(){
             
     }
 
+    var a = new Array();
+    var up1 = new Object();
+    up1={
+        username:username,
+        password:password
+       };
+    a.push(up1);
+    localStorage.setItem('all_users',JSON.stringify(a));
+}
+
     handleSubmit();
     const formValidation = () => {
         const usernameErr = {};
@@ -66,7 +76,7 @@ function Login(){
 
     return(
         <div>
-            <Header1/>
+            {/* <Header1/> */}
         <div class = "row container">
         <div class = "col-md-3"></div>
         <div class = "col-md-6">
@@ -80,7 +90,7 @@ function Login(){
 
                 <div className="form-group">
                     <label>Username</label>
-                    <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" />
+                    <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" id= "uname" />
                     {
                         Object.keys(errors).map((key)=>
                         <div style={{color:'red'}}>{errors[key]}</div>
@@ -93,7 +103,7 @@ function Login(){
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" value={password} onChange={({ target }) => setPassword(target.value)}  className="form-control" placeholder="Enter password" />
+                    <input type="password" value={password} onChange={({ target }) => setPassword(target.value)}  className="form-control" placeholder="Enter password" id = "psw" />
                 </div>
 
                 <div className="form-group">
@@ -114,7 +124,7 @@ function Login(){
             </div>
             <div class = "col-md-3"></div>
         </div>
-        <Footer1></Footer1>
+        {/* <Footer1></Footer1> */}
         </div>
     );
 };
