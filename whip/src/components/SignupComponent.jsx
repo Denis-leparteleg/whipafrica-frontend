@@ -68,9 +68,6 @@ function Signup(){
         .catch(function (error) {
         if (error.response) {
             setError(error.response.data)
-            setError(error.response.data);
-            setError(error.response.status);
-            setError(error.response.headers);
         }});
        };
 

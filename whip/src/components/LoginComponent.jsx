@@ -43,9 +43,6 @@ function Login(){
         .catch(function (error) {
         if (error.response) {
             setError(error.response.data)
-            // setError(error.response.data);
-            // setError(error.response.status);
-            // setError(error.response.headers);
         }});
             
     }
@@ -58,7 +55,6 @@ function Login(){
        };
     a.push(up1);
     localStorage.setItem('all_users',JSON.stringify(a));
-}
 
     handleSubmit();
     const formValidation = () => {
