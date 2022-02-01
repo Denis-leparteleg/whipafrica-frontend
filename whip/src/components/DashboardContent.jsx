@@ -1,6 +1,37 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
+import axios from "axios";
 
 const DashboardContent = ()=>{
+    const [artists, setArtist] = useState([]);
+
+    useEffect(() => {
+        handleSubmit();
+      }, []);
+
+    var axios = require("axios").default;
+
+    async function handleSubmit(e) {
+    e.preventDefault();
+
+    var options = {
+        method: 'GET',
+        url: 'https://shazam.p.rapidapi.com/search',
+        params: {term: 'kiss the rain', locale: 'en-US', offset: '0', limit: '5'},
+        headers: {
+        }
+        };
+    axios.request(options).then(function (response) {
+        console.log(response);
+        // console.log(response.data);
+        setArtist(response.data);
+
+    }).catch(function (error) {
+        console.error(error.response.data);
+    });
+    axios(options);
+    handleSubmit();      
+    } 
+    
     return(
         <div>
             <div class = "row">
@@ -13,6 +44,26 @@ const DashboardContent = ()=>{
                     <div>
                         <button type="submit" className="btn btn-primary btn-block btn-lg rounded-pill">Fresh Talent List</button>
                     </div>
+
+                    {/* <div class="search-container">
+                        <form method="get">
+                            <label for="song"></label>
+                            <input type="text" name="keyword" id="keyword" placeholder="   Search for a song or artist"/>
+
+                            <button class="btn btn-primary search-btn" type="submit"><span>Search for spotify id </span></button>
+                        </form>
+
+                    </div> */}
+                    <div class="search-container">
+                        <form method="get">
+                            <label for="song"></label>
+                            <input type="text" value={artists}  onChange={({ target }) => setArtist(target.value)} className="form-control" placeholder="Search for a song or artist" />
+                            <button class="btn btn-primary search-btn" type="submit" onClick={handleSubmit}><span>Search for artist</span></button>
+
+                        </form>
+
+                    </div>
+
                     <div class = "top-left-left">
                          <div><img src="../images/bensoul.jpeg" class="card-img-top" alt="..." height = "40px" width="40px"></img></div>
                          <div>
@@ -57,9 +108,15 @@ const DashboardContent = ()=>{
             </div>
         </div>
     </div>
+    {artists.map((artist) => (
+            <div className='card'>
+                <img src={artist.avatar} alt='' />
+            </div>
+            ))}
 
         </div>
     )
-};
+
+}
 
 export default DashboardContent;

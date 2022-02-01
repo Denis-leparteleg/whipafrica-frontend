@@ -8,30 +8,6 @@ import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import {Modal, Button} from 'react-bootstrap';
 
-function MyVerticallyCenteredModal(props) {
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h4>Centered Modal</h4>
-          <Login/>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
-
 function Signup(){
     const navigate = useNavigate();
 
@@ -69,9 +45,9 @@ function Signup(){
         if (error.response) {
             setError(error.response.data)
         }});
+        handleSubmit();
        };
 
-        handleSubmit();
 
         const formValidation = () => {
             const usernameErr = {};
@@ -95,10 +71,9 @@ function Signup(){
 
     return(
         <div>
-            {/* <Header1/> */}
-            <div class = "row container">
-            <div class = "col-md-4"></div>
-            <div class = "col-md-6">
+            {/* <div class = "row container"> */}
+            {/* <div class = "col-md-4"></div> */}
+            {/* <div class = "col-md-6"> */}
             <form  >
                 <h3>Sign Up</h3>
 
@@ -118,23 +93,23 @@ function Signup(){
                 </div>
                 <br></br>
 
-                <button type="submit" className="btn btn-primary btn-block btn-lg rounded-pill" onClick={handleSubmit}>SIGN UP</button>
+                <button type="submit" className="btn btn-primary btn-sm btn-block D-block rounded-pill" onClick={handleSubmit}>SIGN UP</button>
+                
                 <br></br>
 
                 <p className="forgot-password text-right">
-                    Already registered? <a href= "#" onClick={() => setModalShow(true)}>Login</a>
-                    {/* <Link to="/login">Login</Link> */}
+                    {/* Already registered? <a href= "#" onClick={() => setModalShow(true)}>Login</a> */}
+                    Already registered? <Link to="/login">Login</Link>
                     {/* <span><button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={logIn}>SIGN IN</button></span> */}
                 </p>
             </form>
-            </div>
-            <div class= "col-md-2"></div>
-            </div>
-            <MyVerticallyCenteredModal
+            {/* </div> */}
+            {/* <div class= "col-md-2"></div> */}
+            {/* </div> */}
+            {/* <MyVerticallyCenteredModal
                       show={modalShow}
                       onHide={() => setModalShow(false)}
-                    />
-            {/* <Footer1/> */}
+                    /> */}
         </div>
     )
 }
