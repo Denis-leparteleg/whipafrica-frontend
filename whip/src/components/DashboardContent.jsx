@@ -157,7 +157,7 @@ const DashboardContent = ()=>{
                     </div>
                     ))} */}
 
-        <DashboardChart/>            
+        {/* <DashboardChart/>             */}
         </div>
     )
 }

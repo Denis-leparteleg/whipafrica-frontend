@@ -23,7 +23,7 @@ const DashboardChart = ()=>{
 
     useEffect(() => {
         const fetchPrices = async () => {
-          const res = await fetch("https://api.coincap.io/v2/assets/?limit=5")
+          const res = await fetch("")
           const data = await res.json()
           console.log(data)
           setChartData({
