@@ -73,9 +73,9 @@ function Login(){
     return(
         <div>
             {/* <Header1/> */}
-        <div class = "row container">
-        <div class = "col-md-3"></div>
-        <div class = "col-md-6">
+        {/* <div class = "row container"> */}
+        {/* <div class = "col-md-3"></div> */}
+        {/* <div class = "col-md-6"> */}
            <form>
                 <h3>Sign In</h3>
 
@@ -109,7 +109,7 @@ function Login(){
                     </div>
                 </div>
 
-                <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-lg rounded-pill">SIGN IN</button>
+                <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-sm rounded-pill">SIGN IN</button>
                 <p className="forgot-password text-right">
                     Forgot <a href="#">password?</a>
                 </p>
@@ -117,9 +117,9 @@ function Login(){
                     Already a member? <Link to="/signup">Signup</Link>
                 </p>
             </form>
-            </div>
+            {/* </div> */}
             <div class = "col-md-3"></div>
-        </div>
+        {/* </div> */}
         {/* <Footer1></Footer1> */}
         </div>
     );

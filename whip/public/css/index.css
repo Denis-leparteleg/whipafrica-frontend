@@ -24,9 +24,13 @@
 * {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
   font-family: 'Abhaya Libre', serif;
 }
+
+body {
+  overflow-x: hidden;
+}
+
 .cont-wrapper {
   display: grid;
   grid-template-columns: 1fr 400px;
@@ -123,6 +127,19 @@
   margin-left: 47%;
 }
 
+.modal-wrapper {
+  display: grid !important;
+  grid-template-columns: 300px 400px !important;
+  border-radius: 20px !important;
+  border: 1px solid #E7E6FF;
+}
+.left-modal {
+  background-image: url('../images/img8.jpeg') !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-radius: 20px 0 0 20px;
+}
 
 @media only screen and (min-width: 1400px) {
   .cont{
