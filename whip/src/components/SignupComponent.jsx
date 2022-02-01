@@ -4,8 +4,33 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Footer1 from "./FooterComponent1";
 import Header1 from "./HeaderComponent1";
-import { Link } from "react-router-dom"
 import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
+import {Modal, Button} from 'react-bootstrap';
+
+function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Modal heading
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Centered Modal</h4>
+          <Login/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
 
 function Signup(){
     const navigate = useNavigate();
@@ -18,6 +43,7 @@ function Signup(){
     const [password, setPassword] = useState("");
     const [errors, setError] = useState({});
     const [user, setUser] = useState()
+    const [modalShow, setModalShow] = React.useState(false);
 
     const [usernameErr, setUsernameErr] = useState({});
 
@@ -43,9 +69,6 @@ function Signup(){
         .catch(function (error) {
         if (error.response) {
             setError(error.response.data)
-            setError(error.response.data);
-            setError(error.response.status);
-            setError(error.response.headers);
         }});
        };
 
@@ -73,7 +96,7 @@ function Signup(){
 
     return(
         <div>
-            <Header1/>
+            {/* <Header1/> */}
             <div class = "row container">
             <div class = "col-md-4"></div>
             <div class = "col-md-6">
@@ -100,13 +123,21 @@ function Signup(){
                 <br></br>
 
                 <p className="forgot-password text-right">
-                    Already registered? <Link to="/login">Login</Link>
+
+                    Already registered? <a href= "#" onClick={() => setModalShow(true)}>Login</a>
+                    {/* <Link to="/login">Login</Link> */}
+                    {/* <span><button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={logIn}>SIGN IN</button></span> */}
+
                 </p>
             </form>
             </div>
             <div class= "col-md-2"></div>
             </div>
-            <Footer1/>
+            <MyVerticallyCenteredModal
+                      show={modalShow}
+                      onHide={() => setModalShow(false)}
+                    />
+            {/* <Footer1/> */}
         </div>
     )
 }
