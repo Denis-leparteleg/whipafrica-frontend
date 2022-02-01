@@ -14,24 +14,45 @@ const DashboardContent = ()=>{
     async function handleSubmit(e) {
     e.preventDefault();
 
+    // var options = {
+    //     method: 'GET',
+    //     url: 'https://shazam.p.rapidapi.com/search',
+    //     params: {term: searchTerm, locale: 'en-US', offset: '0', limit: '5'},
+    //     headers: {
+    //     }
+    //     };
+    // axios.request(options).then(function (response) {
+    //     console.log(response);
+    //     console.log(response.data.artists.hits);
+    //     setArtist(response?.data?.artists?.hits);
+
+    // }).catch( (error) =>{
+    //     console.log(error)
+    //     console.error(error.response.data);
+    // });
+    // axios(options);
     var options = {
         method: 'GET',
-        url: 'https://shazam.p.rapidapi.com/search',
-        params: {term: searchTerm, locale: 'en-US', offset: '0', limit: '5'},
+        url: 'https://spotify23.p.rapidapi.com/search/',
+        params: {
+          q: {searchTerm},
+          type: 'multi',
+          offset: '0',
+          limit: '10',
+          numberOfTopResults: '5'
+        },
         headers: {
+          'x-rapidapi-host': 'spotify23.p.rapidapi.com',
+          'x-rapidapi-key': '0d5e1bc88cmsh44b756ceca88c70p1580d6jsna4720860568f'
         }
-        };
-    axios.request(options).then(function (response) {
-        console.log(response);
-        console.log(response.data.artists.hits);
-        setArtist(response?.data?.artists?.hits);
-
-    }).catch( (error) =>{
-        console.log(error)
-        console.error(error.response.data);
-    });
-    axios(options);
-    handleSubmit();      
+      };
+      
+      axios.request(options).then(function (response) {
+          console.log(response.data);
+      }).catch(function (error) {
+          console.error(error);
+      });
+    // handleSubmit();      
     } 
     
     return(
