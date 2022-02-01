@@ -44,7 +44,6 @@ function Signup(){
     const [errors, setError] = useState({});
     const [user, setUser] = useState()
     const [modalShow, setModalShow] = React.useState(false);
-
     const [usernameErr, setUsernameErr] = useState({});
 
 
@@ -123,11 +122,9 @@ function Signup(){
                 <br></br>
 
                 <p className="forgot-password text-right">
-
                     Already registered? <a href= "#" onClick={() => setModalShow(true)}>Login</a>
                     {/* <Link to="/login">Login</Link> */}
                     {/* <span><button class = "btn mt-4 btn-primary btn-lg rounded-pill" type="submit" onClick={logIn}>SIGN IN</button></span> */}
-
                 </p>
             </form>
             </div>
