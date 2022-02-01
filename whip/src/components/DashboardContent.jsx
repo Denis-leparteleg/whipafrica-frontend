@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from "react";
 import axios from "axios";
+import DashboardChart from "./DashboardChartComponent";
 const DashboardContent = ()=>{
     const [artists, setArtist] = useState([]);
     const [tracks, setTracks] = useState([]);
@@ -155,6 +156,8 @@ const DashboardContent = ()=>{
                         <h1>{track.track.title} </h1>
                     </div>
                     ))} */}
+
+        <DashboardChart/>            
         </div>
     )
 }
