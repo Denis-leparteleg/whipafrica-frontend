@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Footer1 from "./FooterComponent1";
 import Header1 from "./HeaderComponent1";
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 import {Modal, Button} from 'react-bootstrap';
 
@@ -40,27 +41,56 @@ function Signup(){
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setError] = useState({});
     const [user, setUser] = useState()
     const [modalShow, setModalShow] = React.useState(false);
+    const [usernameErr, setUsernameErr] = useState({});
+
 
         const axios = require('axios');
 
         async function handleSubmit(e) {
         e.preventDefault();
 
+        const isValid = formValidation();
+
         let payload = { username, password};
 
-        let res = await axios.post('http://127.0.0.1:8000/api/register/', payload);
+        axios.post('http://127.0.0.1:8000/api/register/', payload)
+        .then(function (response) {
+            let data = response.data;
+            console.log(data);
 
-        let data = res.data;
-        console.log(data);
-
-        if (data){
-            logIn();
-        }
-        }
+            if (data){
+                logIn();
+            }
+          })
+        .catch(function (error) {
+        if (error.response) {
+            setError(error.response.data)
+            setError(error.response.data);
+            setError(error.response.status);
+            setError(error.response.headers);
+        }});
+       };
 
         handleSubmit();
+
+        const formValidation = () => {
+            const usernameErr = {};
+            let isValid = true;
+
+            if(username.trim().length < 5){
+               usernameErr.usernameShort = "Username is short"; 
+               isValid = false;
+            }
+            if(username.trim().length > 10){
+                usernameErr.usernameLong = "Username is too Long"; 
+                isValid = false;
+             }
+             setUsernameErr(usernameErr);
+             return isValid;
+        }
 // if there's a user show the message below
   if (user) {
     return <div>{user.name} is loggged in</div>;
@@ -75,29 +105,19 @@ function Signup(){
             <form  >
                 <h3>Sign Up</h3>
 
-                {/* <div className="form-group">
-                    <label>First name</label>
-                    <input type="text" className="form-control" placeholder="First name" />
-                </div>
-
-                <div className="form-group">
-                    <label>Last name</label>
-                    <input type="text" className="form-control" placeholder="Last name" />
-                </div> */}
-
                 <div className="form-group">
                     <label>Username</label>
                     <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" />
+                    {
+                        Object.keys(errors).map((key)=>
+                        <div style={{color:'red'}}>{errors[key]}</div>
+                        )
+                    }
                 </div>
-
-                {/* <div className="form-group">
-                    <label>Email address</label>
-                    <input type="email" className="form-control" placeholder="Enter email" />
-                </div> */}
 
                 <div className="form-group">
                     <label>Password</label>
-                    <input type="password" value={password} onChange={({ target }) => setPassword(target.value)}  className="form-control" placeholder="Enter password" />
+                    <input type="password" value={password} onChange={({ target }) => setPassword(target.value)}  className="form-control" placeholder="Create a password" />
                 </div>
                 <br></br>
 
