@@ -18,7 +18,7 @@ const DashboardContent = ()=>{
     var options = {
         method: 'GET',
         url: 'https://shazam.p.rapidapi.com/search',
-        params: {term: searchTerm, locale: 'en-US', offset: '0', limit: '5'},
+        params: {term: searchTerm, locale: 'en-US', offset: '0', limit: '10'},
         headers: {
             'x-rapidapi-host': 'shazam.p.rapidapi.com',
             'x-rapidapi-key': '5627f8a25bmshea5cb0a9f785954p10c77djsndd9e06d038b6'
@@ -41,6 +41,23 @@ const DashboardContent = ()=>{
     axios(options);
     handleSubmit();      
     } 
+
+    var options2 = {
+        method: 'GET',
+        url: 'https://shazam.p.rapidapi.com/charts/track',
+        params: {locale: 'en-US', pageSize: '20', startFrom: '0'},
+        headers: {
+          'x-rapidapi-host': 'shazam.p.rapidapi.com',
+          'x-rapidapi-key': '5627f8a25bmshea5cb0a9f785954p10c77djsndd9e06d038b6'
+        }
+      };
+      
+      axios.request(options2).then(function (response) {
+        console.log(response);
+          console.log(response.data);
+      }).catch(function (error) {
+          console.error(error);
+      });
     
     return(
         <div>
@@ -93,7 +110,8 @@ const DashboardContent = ()=>{
                                 </div>
 
                                 ))}
-                             <i class="fa fa-fw fa-chevron-down"></i></p>
+                             {/* <i class="fa fa-fw fa-chevron-down"></i> */}
+                             </p>
                          {/* <p>A$R Scout</p> */}
                          </div>
                     </div>
