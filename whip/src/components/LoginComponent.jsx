@@ -56,8 +56,6 @@ function Login(){
     a.push(up1);
     localStorage.setItem('all_users',JSON.stringify(a));
 
-}
-
     handleSubmit();
     const formValidation = () => {
         const usernameErr = {};
