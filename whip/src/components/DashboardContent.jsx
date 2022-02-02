@@ -4,40 +4,40 @@ import axios from "axios";
 const DashboardContent = ()=>{
     const [artists, setArtist] = useState([]);
     const [tracks, setTracks] = useState([]);
-    const [searchTerm, setSearchTerm] = useState();
+    const [searchTerm, setSearchTerm] = useState([]);
+    const [songstats, setSongstats] = useState([]);
 
     useEffect(() => {
-        // handleSubmit();
-      }, []);
+        console.log(songstats)
+      }, [songstats]);
 
-    // async function handleSubmit() {
-    // e.preventDefault();
+      useEffect(()=>{
+        handleSubmit();
+      })
 
-    // const axios = require("axios");
+    async function handleSubmit(e) {
+    e.preventDefault();
 
     const fetchData = async () => {
     let res = await axios({
         method: "GET",
-        // url: "https://songstats.p.rapidapi.com/artists/stats?source=all&spotify_artist_id=2h93pZq0e7k5yf4dywlkpM",
         url: "http://127.0.0.1:8000/api/stats/",
-        headers: {
-        // "x-rapidapi-host": "songstats.p.rapidapi.com",
-        // "x-rapidapi-key": "53f05c0b1amsh90257705c3be42cp14d383jsn20b8197584af",
-        },
     });
-    console.log(res);
-    console.log(res.status);
-    console.log(res.data.source);
-    let newd = res.data.stats;
-    newd.forEach((doc) => {
-        console.log(doc);
-    });
+    setSongstats(objectArray(res.data))
     };
-    fetchData();
-    //   };   
-    // handleSubmit();   
-    // };
     
+    fetchData(); 
+    handleSubmit();   
+    };
+     function objectArray(docs){
+         let arr = []
+         docs.forEach((doc)=>{
+            arr.push(JSON.parse(doc));
+            // console.log(JSON.parse(doc));
+            console.log(typeof doc)
+         })
+       return arr  
+     }
     return(
         <div>
             <div class = "row">
@@ -55,7 +55,7 @@ const DashboardContent = ()=>{
                         <form method="get" className="d-flex justify-content-between p-2">
                             <label for="song"></label>
                             <input type="text" value={searchTerm}  onChange={({ target }) => setSearchTerm(target.value)} className="form-control" placeholder="Search for an artist" />
-                            <button className="btn btn-primary search-btn mx-1" type="submit"><span>SEARCH</span></button>
+                            <button className="btn btn-primary search-btn mx-1" onClick={handleSubmit} type="submit"><span>SEARCH</span></button>
                         </form>
                     </div>
 
@@ -220,5 +220,6 @@ const DashboardContent = ()=>{
     )
 
 }
+
 
 export default DashboardContent;
