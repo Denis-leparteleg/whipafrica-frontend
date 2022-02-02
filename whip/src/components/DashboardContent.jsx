@@ -40,7 +40,7 @@ const DashboardContent = ()=>{
         params: {locale: 'en-US', pageSize: '20', startFrom: '0'},
         headers: {
           'x-rapidapi-host': 'shazam.p.rapidapi.com',
-          'x-rapidapi-key': '5627f8a25bmshea5cb0a9f785954p10c77djsndd9e06d038b6'
+          'x-rapidapi-key': '0d5e1bc88cmsh44b756ceca88c70p1580d6jsna4720860568f'
         }
       };
       axios.request(options2).then(function (response) {
@@ -157,7 +157,7 @@ const DashboardContent = ()=>{
                     </div>
                     ))} */}
 
-        <DashboardChart/>            
+        {/* <DashboardChart/>             */}
         </div>
     )
 }
