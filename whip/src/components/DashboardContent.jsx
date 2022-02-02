@@ -5,50 +5,69 @@ const DashboardContent = ()=>{
     const [artists, setArtist] = useState([]);
     const [tracks, setTracks] = useState([]);
     const [searchTerm, setSearchTerm] = useState();
-    useEffect(() => {
-        handleSubmit();
-      }, []);
-    var axios = require("axios").default;
-    async function handleSubmit(e) {
-    e.preventDefault();
-    var options = {
-        method: 'GET',
-        url: 'https://shazam.p.rapidapi.com/search',
-        params: {term: searchTerm, locale: 'en-US', offset: '0', limit: '5'},
-        headers: {
-            'x-rapidapi-host': 'shazam.p.rapidapi.com',
-            'x-rapidapi-key': '5627f8a25bmshea5cb0a9f785954p10c77djsndd9e06d038b6'
-        }
-        };
-    axios.request(options).then(function (response) {
-        // console.log(response);
-        console.log(response.data);
-        // console.log(response.data.artists.hits);
-        console.log(response.data.tracks.hits);
-        setArtist(response?.data?.artists?.hits);
-        setTracks(response?.data?.tracks?.hits);
-    }).catch( (error) =>{
-        console.log(error)
-        console.error(error.response.data);
-    });
-    axios(options);
-    handleSubmit();
-    }
-    var options2 = {
-        method: 'GET',
-        url: 'https://shazam.p.rapidapi.com/charts/track',
-        params: {locale: 'en-US', pageSize: '20', startFrom: '0'},
-        headers: {
-          'x-rapidapi-host': 'shazam.p.rapidapi.com',
-          'x-rapidapi-key': '0d5e1bc88cmsh44b756ceca88c70p1580d6jsna4720860568f'
-        }
-      };
-      axios.request(options2).then(function (response) {
-        console.log(response);
-          console.log(response.data);
-      }).catch(function (error) {
-          console.error(error);
-      });
+    // useEffect(() => {
+    //     handleSubmit();
+    //   }, []);
+    // var axios = require("axios").default;
+    // async function handleSubmit(e) {
+    // e.preventDefault();
+    // var options = {
+    //     method: 'GET',
+    //     url: 'https://shazam.p.rapidapi.com/search',
+    //     params: {term: searchTerm, locale: 'en-US', offset: '0', limit: '5'},
+    //     headers: {
+    //         'x-rapidapi-host': 'shazam.p.rapidapi.com',
+    //         'x-rapidapi-key': '5627f8a25bmshea5cb0a9f785954p10c77djsndd9e06d038b6'
+    //     }
+    //     };
+    // axios.request(options).then(function (response) {
+    //     // console.log(response);
+    //     console.log(response.data);
+    //     // console.log(response.data.artists.hits);
+    //     console.log(response.data.tracks.hits);
+    //     setArtist(response?.data?.artists?.hits);
+    //     setTracks(response?.data?.tracks?.hits);
+    // }).catch( (error) =>{
+    //     console.log(error)
+    //     console.error(error.response.data);
+    // });
+    // axios(options);
+    // handleSubmit();
+    // }
+    // var options2 = {
+    //     method: 'GET',
+    //     url: 'https://shazam.p.rapidapi.com/charts/track',
+    //     params: {locale: 'en-US', pageSize: '20', startFrom: '0'},
+    //     headers: {
+    //       'x-rapidapi-host': 'shazam.p.rapidapi.com',
+    //       'x-rapidapi-key': '0d5e1bc88cmsh44b756ceca88c70p1580d6jsna4720860568f'
+    //     }
+    //   };
+    //   axios.request(options2).then(function (response) {
+    //     console.log(response);
+    //       console.log(response.data);
+    //   }).catch(function (error) {
+    //       console.error(error);
+    //   });
+    // const axios = require("axios");
+    const fetchData = async () => {
+    let res = await axios({
+    method: "GET",
+    url: "https://songstats.p.rapidapi.com/artists/stats?source=all&spotify_artist_id=2h93pZq0e7k5yf4dywlkpM",
+    headers: {
+      "x-rapidapi-host": "songstats.p.rapidapi.com",
+      "x-rapidapi-key": "53f05c0b1amsh90257705c3be42cp14d383jsn20b8197584af",
+    },
+  });
+  console.log(res);
+  console.log(res.status);
+  console.log(res.data);
+  let newd = res.data.stats;
+  newd.forEach((doc) => {
+    console.log(doc);
+  });
+};
+fetchData();
     return(
         <div>
             <div class = "row">
@@ -72,7 +91,7 @@ const DashboardContent = ()=>{
                         <form method="get">
                             <label for="song"></label>
                             <input type="text" value={searchTerm}  onChange={({ target }) => setSearchTerm(target.value)} className="form-control" placeholder="Search for a song or artist" />
-                            <button class="btn btn-primary search-btn" type="submit" onClick={handleSubmit}><span>Search for artist</span></button>
+                            {/* <button class="btn btn-primary search-btn" type="submit" onClick={handleSubmit}><span>Search for artist</span></button> */}
                         </form>
                     </div>
                     <div class = "top-left-left">

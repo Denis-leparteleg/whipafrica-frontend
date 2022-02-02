@@ -13,12 +13,12 @@ function Login(){
         navigate("/dashboard");
     }
 
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [errors, setError] = useState({});
     const [user, setUser] = useState()
 
-    const [usernameErr, setUsernameErr] = useState({});
+    // const [NameErr, setNameErr] = useState({});
 
 
     const axios = require('axios');
@@ -26,9 +26,9 @@ function Login(){
     async function handleSubmit(e) {
         e.preventDefault();
 
-        const isValid = formValidation();
+        // const isValid = formValidation();
 
-        let payload = { username, password};
+        let payload = { email, password};
 
         axios.post('http://127.0.0.1:8000/api/login/', payload)
 
@@ -50,25 +50,25 @@ function Login(){
     var a = new Array();
     var up1 = new Object();
     up1={
-        username:username,
+        email:email,
         password:password
        };
     a.push(up1);
     localStorage.setItem('all_users',JSON.stringify(a));
 
     handleSubmit();
-    const formValidation = () => {
-        const usernameErr = {};
-        let isValid = true;
+    // const formValidation = () => {
+    //     const NameErr = {};
+    //     let isValid = true;
 
-        if(username != username){
-            usernameErr.usernameNotEqual = "Username does not exists"; 
-            isValid = false;
-         }
+    //     if(username != username){
+    //         usernameErr.usernameNotEqual = "Username does not exists"; 
+    //         isValid = false;
+    //      }
 
-        setUsernameErr(usernameErr);
-        return isValid;
-    }
+    //     setUsernameErr(usernameErr);
+    //     return isValid;
+    // }
 
     return(
         <div>
@@ -85,8 +85,8 @@ function Login(){
                 </div> */}
 
                 <div className="form-group">
-                    <label>Username</label>
-                    <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" id= "uname" />
+                    <label>Email</label>
+                    <input type="email" value={email}  onChange={({ target }) => setEmail(target.value)} className="form-control" placeholder="Enter your email" id= "uemail" />
                     {
                         Object.keys(errors).map((key)=>
                         <div style={{color:'red'}}>{errors[key]}</div>
