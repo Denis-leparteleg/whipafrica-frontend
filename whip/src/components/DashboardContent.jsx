@@ -19,6 +19,7 @@ const DashboardContent = ()=>{
     let res = await axios({
         method: "GET",
         // url: "https://songstats.p.rapidapi.com/artists/stats?source=all&spotify_artist_id=2h93pZq0e7k5yf4dywlkpM",
+        url: "http://127.0.0.1:8000/api/stats/",
         headers: {
         // "x-rapidapi-host": "songstats.p.rapidapi.com",
         // "x-rapidapi-key": "53f05c0b1amsh90257705c3be42cp14d383jsn20b8197584af",
@@ -26,7 +27,7 @@ const DashboardContent = ()=>{
     });
     console.log(res);
     console.log(res.status);
-    console.log(res.data);
+    console.log(res.data.source);
     let newd = res.data.stats;
     newd.forEach((doc) => {
         console.log(doc);
