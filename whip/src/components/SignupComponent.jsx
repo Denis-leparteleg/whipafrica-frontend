@@ -15,12 +15,13 @@ function Signup(){
         navigate("/login");}
 
 
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [name, setName] = useState("")
     const [errors, setError] = useState({});
     const [user, setUser] = useState()
     const [modalShow, setModalShow] = React.useState(false);
-    const [usernameErr, setUsernameErr] = useState({});
+    const [nameErr, setNameErr] = useState({});
 
 
         const axios = require('axios');
@@ -30,7 +31,7 @@ function Signup(){
 
         const isValid = formValidation();
 
-        let payload = { username, password};
+        let payload = { email,name, password};
 
         axios.post('http://127.0.0.1:8000/api/register/', payload)
         .then(function (response) {
@@ -50,18 +51,18 @@ function Signup(){
 
 
         const formValidation = () => {
-            const usernameErr = {};
+            const nameErr = {};
             let isValid = true;
 
-            if(username.trim().length < 5){
-               usernameErr.usernameShort = "Username is short"; 
+            if(name.trim().length < 2){
+               nameErr.nameShort = "name is short"; 
                isValid = false;
             }
-            if(username.trim().length > 10){
-                usernameErr.usernameLong = "Username is too Long"; 
+            if(name.trim().length > 10){
+                nameErr.nameLong = "name is too Long"; 
                 isValid = false;
              }
-             setUsernameErr(usernameErr);
+             setNameErr(nameErr);
              return isValid;
         }
 // if there's a user show the message below
@@ -78,8 +79,17 @@ function Signup(){
                 <h3>Sign Up</h3>
 
                 <div className="form-group">
-                    <label>Username</label>
-                    <input type="text" value={username}  onChange={({ target }) => setUsername(target.value)} className="form-control" placeholder="Enter your username" />
+                    <label>Name</label>
+                    <input type="text" value={name}  onChange={({ target }) => setName(target.value)} className="form-control" placeholder="Enter your name" />
+                    {
+                        Object.keys(errors).map((key)=>
+                        <div style={{color:'red'}}>{errors[key]}</div>
+                        )
+                    }
+                </div>
+                <div className="form-group">
+                    <label>Email</label>
+                    <input type="email" value={email}  onChange={({ target }) => setEmail(target.value)} className="form-control" placeholder="Enter your email" />
                     {
                         Object.keys(errors).map((key)=>
                         <div style={{color:'red'}}>{errors[key]}</div>
