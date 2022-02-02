@@ -20,8 +20,7 @@ const DashboardContent = ()=>{
         url: 'https://shazam.p.rapidapi.com/search',
         params: {term: searchTerm, locale: 'en-US', offset: '0', limit: '5'},
         headers: {
-            'x-rapidapi-host': 'shazam.p.rapidapi.com',
-            'x-rapidapi-key': '5627f8a25bmshea5cb0a9f785954p10c77djsndd9e06d038b6'
+            
         }
         };
     axios.request(options).then(function (response) {
@@ -42,22 +41,7 @@ const DashboardContent = ()=>{
     handleSubmit();      
     } 
 
-    // var options2 = {
-    //     method: 'GET',
-    //     url: 'https://shazam.p.rapidapi.com/charts/track',
-    //     params: {locale: 'en-US', pageSize: '20', startFrom: '0'},
-    //     headers: {
-    //       'x-rapidapi-host': 'shazam.p.rapidapi.com',
-    //       'x-rapidapi-key': '5627f8a25bmshea5cb0a9f785954p10c77djsndd9e06d038b6'
-    //     }
-    //   };
-      
-    //   axios.request(options2).then(function (response) {
-    //     console.log(response);
-    //       console.log(response.data);
-    //   }).catch(function (error) {
-    //       console.error(error);
-    //   });
+    
     
     return(
         <div>
@@ -148,9 +132,9 @@ const DashboardContent = ()=>{
     </div>
                 <ul>
                 {tracks.map((track) => (
-                    <li key={track.id} className='card cd-img'>
-                        <h1>{track.track.title} </h1>
-                        <h1>{track.track.url} </h1>
+                    <li key={track.id} className='card card-wr cd-img mb-2'>
+                        {/* <img src={track.track.images.background} className="card-img-top" alt="..." height = "250px" /> */}
+                        <h4>{track.track.title} <a><span className="text-primary">{track.track.url}</span></a></h4>
                     </li>
                     ))} 
                 </ul>
