@@ -9,8 +9,7 @@ const DashboardSideNav= ()=>{
             {/* The sidebar  */}
             <div class="sidebar">
                 <a class="navbar-brand" href="#">
-                    {/* <img class="logo" src="../images/logo2.jpeg" height = "50px" width = "50px" alt=""/><br></br>
-                    <span><h3>whip.</h3></span> */}
+                    <img class="logo" src="../images/logo2.jpeg" height = "50px" width = "50px" alt=""/><br></br>
                     <h3>whip.</h3>
                 </a>
                 <a class="active" href="#home"><i class="fa fa-fw fa-home"></i> Fresh talent</a>
