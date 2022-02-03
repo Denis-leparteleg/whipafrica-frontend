@@ -1,21 +1,93 @@
 import React, {useState, useEffect } from "react";
 import axios from "axios";
+import BarChart from "./Chart";
+import DoughnutChart from "./Charts/DoughnutChart";
 
 const DashboardContent = ()=>{
     const [artists, setArtist] = useState([]);
-    const [tracks, setTracks] = useState([]);
     const [searchTerm, setSearchTerm] = useState();
     const [songstats, setSongstats] = useState([]);
+    const [testcases, settestcases] = useState([]);
 
     useEffect(() => {
-        console.log(songstats)
+        // console.log(songstats)
       }, [songstats]);
 
-   
+    //   useEffect(() => {
+    //     console.log(testcases)
+    //   }, [testcases]);
 
     async function handleSubmit() {
         await fetchData();
     }
+
+    const getObject = (str) => {
+      let foundOpenBracket = false;
+      let foundCloseBracket = false;
+      let newStr = "";
+    
+      for (let i = 0; i < str?.length; i++) {
+        if (foundCloseBracket) {
+          break;
+        }
+        if (str[i] == "{") {
+          foundOpenBracket = true;
+        }
+        if (foundOpenBracket) {
+          newStr = newStr + str[i];
+        }
+        if (str[i] == "}") {
+          foundCloseBracket = true;
+        }
+      }
+      try {
+        if (newStr == "") return false;
+        return JSON.parse(newStr);
+      } catch (e) {
+        return false;
+      }
+    };
+
+    const getSourceName = (str) => {
+      let newStr = "";
+      for (let i = 2; i < str.length; i++) {
+        if (str[i] != '"' && str[i] != ":") {
+          newStr = newStr + str[i];
+        }
+        if (i > 0 && str[i] == ",") {
+          return newStr.slice(0, -1);
+        }
+      }
+    
+      return newStr;
+    };
+
+    const getCleanArr = (arr) => {
+      let Arr = [];
+      for (let i = 1; i < arr.length; i++) {
+        console.log(getSourceName(arr[i]));
+        Arr.push({
+          name: getSourceName(arr[i]),
+          data: getObject(arr[i]),
+        });
+      }
+    
+      //console.log(Arr);
+      settestcases(Arr);
+      return Arr;
+    }
+    function objectArray(docs){
+      let arr = []
+      docs.forEach((doc)=>{
+          // console.log('Start')
+          // console.log(doc)
+          // console.log('End')
+      //    console.log(JSON.parse(doc))
+         // console.log(JSON.parse(doc));
+      //    console.log(typeof doc)
+      })
+    return arr
+  };
     const fetchData = async () => {
         let res = await axios({
             method: "GET",
@@ -25,33 +97,19 @@ const DashboardContent = ()=>{
         var statsElement = stats.split('source')
         console.log(statsElement)
 
+       let arr = statsElement;
+       console.log(arr)
+       getCleanArr(arr);
 
-        // var statsArr = stats.split(':')
-        // console.log('Start')
-        // console.log(stats)
-        // console.log('Start')
-        // console.log(statsArr)
-        // console.log('Start')
-        // console.log(statsElement)
-        // console.log('End')
-        // setSongstats(objectArray(res.data))
-        // console.log(res.data)
-        // console.log(typeof res.data)
+      // useEffect(() => {
+      //   settestcases(getCleanArr());
+      //   alert('working')
+      // }, [])
+      // getObject(
+      //   '":"spotify","data":{"streams_total":2505441223,"mo…ities_total":39,"charted_countries_total":69}},{"'
+      // );
         }; 
-
-    function objectArray(docs){
-        let arr = []
-        docs.forEach((doc)=>{
-            // console.log('Start')
-            // console.log(doc)
-            // console.log('End')
-        //    console.log(JSON.parse(doc))
-           // console.log(JSON.parse(doc));
-        //    console.log(typeof doc)
-        })
-      return arr
-    };
-    
+  
     return(
         <div>
             <div class = "row">
@@ -133,8 +191,8 @@ const DashboardContent = ()=>{
                     <div className="text-center">
                     <button className="p-3 btn-r"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></button>
                     </div>
-                    <p class="card-title card-center">Average Streams Per Month<br/>
-                    <span className="text-span">3.4M</span></p>
+                    <p class="card-title card-center">Total Streams Per Month<br/>
+                    <span className="text-span"> <h3>{testcases.find(val => val.name == 'spotify')?.data.streams_total}</h3></span></p>
                 </div>
             </div>
         </div>
@@ -145,7 +203,7 @@ const DashboardContent = ()=>{
                 <button  className="p-3 btn-r"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></button>
                 </div>
                 <p class="card-title card-center">Streams Growth Rate<br/>
-                    <span className="text-span">31.58</span></p>
+                    <span className="text-span"><h3>{testcases.find(val => val.name == 'amazon')?.data.playlists_current}</h3></span></p>
                 </div>
             </div>
         </div>
@@ -156,7 +214,7 @@ const DashboardContent = ()=>{
                 <button className="p-3 btn-r"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></button>
                 </div>
                 <p class="card-title card-center">Social Media Following<br/>
-                    <span className="text-span">12.9</span></p>
+                    <span className="text-span"><h3>{testcases.find(val => val.name == 'tiktok')?.data.videos_total}</h3></span></p>
                 </div>
             </div>
         </div>
@@ -164,10 +222,12 @@ const DashboardContent = ()=>{
     <div className="grid-container">
         <div className="grid-item item1 p-5">
             <h5>Streams over the last 1 year</h5>
-            <img src="../images/chart2.png" class="card-img-top" alt="..."></img>
+            {/* <img src="../images/chart2.png" class="card-img-top" alt="..."></img> */}
+            <BarChart/>
         </div>
         <div className="grid-item item2">
-        <img src="../images/chart1.jpeg" class="card-img-top" alt="..."></img>
+        {/* <img src="../images/chart1.jpeg" class="card-img-top" alt="..."></img> */}
+        <DoughnutChart/>
         </div>
         <div className="grid-item item3">
         <div class="w3-container">
@@ -234,6 +294,11 @@ const DashboardContent = ()=>{
                     </div>
 
                     ))} */}
+
+            
+            {/* <div className='card'>
+                <h1>{testcases[0]?.data.streams_total}</h1>
+            </div> */}
 
         </div>
     )
