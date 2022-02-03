@@ -51,7 +51,88 @@ const DashboardContent = ()=>{
         })
       return arr
     };
-    
+    let arr = [
+        '{"result":"success","message":"Data Retrieved.","stats":[{"',
+        '":"spotify","data":{"streams_total":2505441223,"mo…ities_total":39,"charted_countries_total":69}},{"',
+        '":"apple_music","data":{"playlists_curr,ent":513,"cks_total":57,"ch,arted_countries_total":115}},{"',
+        '":"amazon","data":{"playlists_current":198,"playli…d_tracks_current":4,"charted_tracks_total":7}},{"',
+        '":"deezer","data":{"followers_total":186705,"playl…_tracks_current":3,"charted_tracks_total":30}},{"',
+        '":"youtube","data":{"video_views_total":430458951,…_tracks_current":1,,"charted_tracks_total":3}},{"',
+        '":"tiktok","data":{"videos_total":7225215,"views_t…tal":240249,"creator_reach_total":2943739502}},{"',
+        '":"shazam","d,ata":{"shazams_total":35010946,"char…ies_total":1368,"charted_countries_total":55}},{"',
+        '":"tracklist","data":{"total_support_total":6729,"…_tracks_current":0,"charted_tracks_total":24}},{"',
+        '":"beatport","data":,{"dj_charts_total":745,"chart…:7,"overall_top_100_charted_tracks_total":12}},{"',
+        ',":"trax',
+        '","data":{"dj_charts_total":27,"charted_tracks_tot…:5,"overall_top_100_charted_tracks_,total":2}},{"',
+        '":"itunes","data":{"charts_current":26,"charts_tot…acks_total":,52,"charted_countries_total":94}},{"',
+        '":"tidal","data":{"playlists_current":25,"playlist…d_tracks_current":0,"charted_tracks_total":4}},{"',
+        '":"soundcloud","data":{"streams_total":59736210,"f…"https://songstats.com/artist/vxk62ige/meduza"},"',
+        '_ids":"all"}',
+      ];
+      
+      const getCleanArr = () => {
+        let Arr = [];
+        for (let i = 1; i < arr.length; i++) {
+        //   console.log(getSourceName(arr[i]));
+          Arr.push({
+            name: getSourceName(arr[i]),
+            data: getObject(arr[i]),
+          });
+        }
+      
+        //console.log(Arr);
+        return Arr;
+      };
+      
+      const getSourceName = (str) => {
+        let newStr = "";
+        for (let i = 2; i < str.length; i++) {
+          if (str[i] != '"' && str[i] != ":") {
+            newStr = newStr + str[i];
+          }
+          if (i > 0 && str[i] == ",") {
+            return newStr.slice(0, -1);
+          }
+        }
+      
+        return newStr;
+      };
+      
+      const getObject = (str) => {
+        let foundOpenBracket = false;
+        let foundCloseBracket = false;
+        let newStr = "";
+      
+        for (let i = 0; i < str.length; i++) {
+          if (foundCloseBracket) {
+            break;
+          }
+          if (str[i] == "{") {
+            foundOpenBracket = true;
+          }
+          if (foundOpenBracket) {
+            newStr = newStr + str[i];
+          }
+          if (str[i] == "}") {
+            foundCloseBracket = true;
+          }
+        }
+        try {
+          if (newStr == "") return false;
+          return JSON.parse(newStr);
+        } catch (e) {
+          return false;
+        }
+      };
+      
+    //   getObject(
+    //     '":"spotify","data":{"streams_total":2505441223,"mo…ities_total":39,"charted_countries_total":69}},{"'
+    //   );
+      
+      getCleanArr();
+      console.log(getCleanArr())
+      console.log("This is another array")
+      
     return(
         <div>
             <div class = "row">
