@@ -5,37 +5,52 @@ const DashboardContent = ()=>{
     const [artists, setArtist] = useState([]);
     const [tracks, setTracks] = useState([]);
     const [searchTerm, setSearchTerm] = useState();
+    const [songstats, setSongstats] = useState([]);
 
     useEffect(() => {
-        // handleSubmit();
-      }, []);
+        console.log(songstats)
+      }, [songstats]);
 
-    // async function handleSubmit() {
-    // e.preventDefault();
+   
 
-    // const axios = require("axios");
-
+    async function handleSubmit() {
+        await fetchData();
+    }
     const fetchData = async () => {
-    let res = await axios({
-        method: "GET",
-        // url: "https://songstats.p.rapidapi.com/artists/stats?source=all&spotify_artist_id=2h93pZq0e7k5yf4dywlkpM",
-        headers: {
-        // "x-rapidapi-host": "songstats.p.rapidapi.com",
-        // "x-rapidapi-key": "53f05c0b1amsh90257705c3be42cp14d383jsn20b8197584af",
-        },
-    });
-    console.log(res);
-    console.log(res.status);
-    console.log(res.data);
-    let newd = res.data.stats;
-    newd.forEach((doc) => {
-        console.log(doc);
-    });
+        let res = await axios({
+            method: "GET",
+            url: "http://127.0.0.1:8000/api/stats/",
+        });
+        var stats = res.data.toString()
+        var statsElement = stats.split('source')
+        console.log(statsElement)
+
+
+        // var statsArr = stats.split(':')
+        // console.log('Start')
+        // console.log(stats)
+        // console.log('Start')
+        // console.log(statsArr)
+        // console.log('Start')
+        // console.log(statsElement)
+        // console.log('End')
+        // setSongstats(objectArray(res.data))
+        // console.log(res.data)
+        // console.log(typeof res.data)
+        }; 
+
+    function objectArray(docs){
+        let arr = []
+        docs.forEach((doc)=>{
+            // console.log('Start')
+            // console.log(doc)
+            // console.log('End')
+        //    console.log(JSON.parse(doc))
+           // console.log(JSON.parse(doc));
+        //    console.log(typeof doc)
+        })
+      return arr
     };
-    fetchData();
-    //   };   
-    // handleSubmit();   
-    // };
     
     return(
         <div>
@@ -50,12 +65,17 @@ const DashboardContent = ()=>{
                         <button type="submit" className="btn btn-primary btn-block btn-lg rounded-pill">Fresh Talent List</button>
                     </div> */}
 
-                    <div className="search-container">
+                    {/* <div className="search-container">
                         <form method="get" className="d-flex justify-content-between p-2">
                             <label for="song"></label>
                             <input type="text" value={searchTerm}  onChange={({ target }) => setSearchTerm(target.value)} className="form-control" placeholder="Search for an artist" />
-                            <button className="btn btn-primary search-btn mx-1" type="submit"><span>SEARCH</span></button>
+                            <button className="btn btn-primary search-btn mx-1" onClick={()=>handleSubmit()} type="submit"><span>SEARCH</span></button>
                         </form>
+                    </div> */}
+                    <div className="d-flex justify-content-between p-2">
+                            <label for="song"></label>
+                            <input type="text" value={searchTerm}  onChange={({ target }) => setSearchTerm(target.value)} className="form-control" placeholder="Search for an artist" />
+                            <button className="btn btn-primary search-btn mx-1" onClick={()=>handleSubmit()} type="submit"><span>SEARCH</span></button>
                     </div>
 
                     <div class = "top-left-left">
@@ -98,7 +118,7 @@ const DashboardContent = ()=>{
         <div className="col-md-2">
             <div className="">
                 <div className="card-body">
-                    <h3 className="card-title text-center">AFIA</h3>
+                    <h4 className="card-title text-center">BENSOUL</h4>
                     <p className="text-center">Genre: R&B<br/>
                     <span>Location:Abuja</span></p>
                     <div className="text-center">
@@ -187,7 +207,7 @@ const DashboardContent = ()=>{
   </table>
 </div>
         </div>
-        <div className="grid-item item4 p-3">
+        <div className="grid-item item4 px-5 py-4">
             <h4 className="prob">Probability of Profitability ...</h4>
         </div>
     </div>

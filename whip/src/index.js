@@ -13,7 +13,7 @@ import App from './App';
 import Login from './components/LoginComponent'
 import Signup from './components/SignupComponent'
 import Dashboard from './components/DashboardComponent'
-
+import BarChart from './components/Chart'
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
@@ -22,6 +22,7 @@ ReactDOM.render(
       <Route path = "/signup"element={<App />} />
       <Route path = "/login" element={<App />} />
       <Route path = "/dashboard" element = {<Dashboard/>} />
+      <Route path = "/chart" element = {<BarChart />} />
     </Routes>
   </BrowserRouter>,
   </React.StrictMode>,
