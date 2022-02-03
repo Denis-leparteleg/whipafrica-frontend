@@ -221,7 +221,7 @@ const DashboardContent = ()=>{
     </div>
     <div className="grid-container">
         <div className="grid-item item1 p-5">
-            <h5>Streams over the last 1 year</h5>
+            <h5 className="text-white">Streams over the last 1 year</h5>
             {/* <img src="../images/chart2.png" class="card-img-top" alt="..."></img> */}
             <BarChart/>
         </div>

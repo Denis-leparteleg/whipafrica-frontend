@@ -10,23 +10,17 @@ ChartJS.register(
 
 const BarChart = () => {
   var data = {
-    labels: ['YouTube', 'TikTok', 'Spotify', 'Shazam', 'Amazon', 'Orange'],
+    labels: ['YouTube', 'TikTok', 'Spotify', 'Shazam', 'Amazon', 'AppleMusic'],
     datasets: [{
         label: '# of Votes',
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: [
-            'black',
-            'orange',
-            'blue',
-            'green',
-            'yellow',
-            'red'
-            // 'rgba(255, 99, 132, 0.2)',
-            // 'rgba(54, 162, 235, 0.2)',
-            // 'rgba(255, 206, 86, 0.2)',
-            // 'rgba(75, 192, 192, 0.2)',
-            // 'rgba(153, 102, 255, 0.2)',
-            // 'rgba(255, 159, 64, 0.2)'
+            'rgba(255, 99, 132, 1.0)',
+            'rgba(54, 162, 235, 1.0)',
+            'rgba(255, 206, 86, 1.0)',
+            'rgba(75, 192, 192, 1.0)',
+            'rgba(153, 102, 255, 1.0)',
+            'rgba(255, 159, 64, 1.0)'
         ],
         borderColor: [
             'rgba(255, 99, 132, 1)',
