@@ -111,7 +111,7 @@ const DashboardContent = ()=>{
         }; 
   
     return(
-        <div>
+        <div class = "dashboardcontent">
             <div class = "row">
                 <div class = "col-md-4 top-right">
                     <h3>Fresh Talent <span>Dashboard</span></h3>
