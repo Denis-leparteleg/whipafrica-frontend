@@ -12,8 +12,8 @@ const BarChart = () => {
   var data = {
     labels: ['YouTube', 'TikTok', 'Spotify', 'Shazam', 'Amazon', 'AppleMusic'],
     datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Total Streams',
+        data: [2587653, 1853648, 2914873, 2783019, 1367208, 371345],
         backgroundColor: [
             'rgba(255, 99, 132, 1.0)',
             'rgba(54, 162, 235, 1.0)',
@@ -30,7 +30,7 @@ const BarChart = () => {
             'rgba(153, 102, 255, 1)',
             'rgba(255, 159, 64, 1)'
         ],
-        borderWidth: 1
+        borderWidth: 1,
     }]
 }
 var options = {

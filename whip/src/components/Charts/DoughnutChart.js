@@ -11,9 +11,9 @@ ChartJS.register(
 const DoughnutChart = () => {
   const data = {
     labels: [
-      'Red',
-      'Blue',
-      'Yellow'
+      'TikTok',
+      'YouTube',
+      'Spotify'
     ],
     datasets: [{
       label: 'My First Dataset',
