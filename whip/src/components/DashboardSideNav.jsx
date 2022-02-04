@@ -21,7 +21,7 @@ const DashboardSideNav= ()=>{
                 <a class="active" href="#home"><i class="fa fa-fw fa-home"></i> Fresh talent</a>
                 <a href="#news"> <i class="fa fa-fw fa-cogs"></i>FAQs</a>
                 <a href="#contact"><i class="fa fa-fw fa-cog"></i>Settings</a>
-                <button type="button" onClick={home} className="btn btn-primary btn-sm rounded-pill">Back</button>
+                <button type="button" onClick={home} className="btn btn-primary btn-sm rounded-pill">Log out</button>
                 
             </div>
 
