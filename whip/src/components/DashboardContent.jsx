@@ -157,18 +157,18 @@ const DashboardContent = ()=>{
                         <button type="submit" className="btn btn-primary btn-block btn-lg rounded-pill">Fresh Talent List</button>
                     </div> */}
 
-              <div className="search-container">
+              {/* <div className="search-container">
                   <form className="d-flex justify-content-between p-2">
                       <label for="song"></label>
                       <input type="text" value={searchTerm}  onChange={({ target }) => setSearchTerm(target.value)} className="form-control" placeholder="Search for an artist" />
                       <button className="btn btn-primary search-btn mx-1" onClick={()=>handleSubmit()} type="submit"><span>SEARCH</span></button>
                   </form>
-              </div>
-              {/* <div className="d-flex justify-content-between p-2">
-                      <label for="song"></label>
-                      <input type="text" value={searchTerm}  onChange={({ target }) => setSearchTerm(target.value)} className="form-control" placeholder="Search for an artist" />
-                      <button className="btn btn-primary btn-sm" onClick={()=>handleSubmit()} type="submit"><span>SEARCH</span></button>
               </div> */}
+              <div className="d-flex justify-content-between p-2">
+                      <label for="song"></label>
+                      <input type="text" value={searchTerm}  onChange={({ target }) => setSearchTerm(target.value)} className="form-control search-artist" placeholder="Search for an artist" />
+                      <button className="btn btn-primary btn-sm" onClick={()=>handleSubmit()} type="submit"><span>SEARCH</span></button>
+              </div>
 
               <div class = "top-left-left">
                    <div>
