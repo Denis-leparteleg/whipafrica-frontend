@@ -324,6 +324,16 @@ div.content {
   padding: 1px 16px;
   height: 1000px;
 }
+.sidebar .btn{
+        width: 50%;
+        padding: 5px;
+        position: absolute;
+        bottom: 0%;
+        align-items: center;
+}
+.sidebar .btn-primary{
+  background-color: #4441B0;
+}
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
@@ -365,4 +375,7 @@ div.content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+.dashboardcontent{
+  padding-bottom: 50px;
 }

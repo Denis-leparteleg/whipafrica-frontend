@@ -145,17 +145,17 @@ const DashboardContent = ()=>{
         }; 
   
     return(
-      <div>
-      <div class = "row">
-          <div class = "col-md-4 top-right">
-              <h3>Fresh Talent <span>Dashboard</span></h3>
-              <p>whipafrica.com/freshtalent</p>
-          </div>
-          {/* <div class = "col-md-2"></div> */}
-          <div class = "col-md-8 top-left">
-              {/* <div>
-                  <button type="submit" className="btn btn-primary btn-block btn-lg rounded-pill">Fresh Talent List</button>
-              </div> */}
+        <div class = "dashboardcontent">
+            <div class = "row">
+                <div class = "col-md-4 top-right">
+                    <h3>Fresh Talent <span>Dashboard</span></h3>
+                    <p>whipafrica.com/freshtalent</p>
+                </div>
+                {/* <div class = "col-md-2"></div> */}
+                <div class = "col-md-8 top-left">
+                    {/* <div>
+                        <button type="submit" className="btn btn-primary btn-block btn-lg rounded-pill">Fresh Talent List</button>
+                    </div> */}
 
               <div className="search-container">
                   <form className="d-flex justify-content-between p-2">
