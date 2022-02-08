@@ -194,6 +194,23 @@ body {
   padding-left: 0 0 0 20px;
 }
 
+.list-cont {
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+}
+
+.span-list{
+  font-size: 16px;
+}
+
+hr{
+  border-bottom: 1px dotted #f00;
+}
+
+.upcoming{
+  padding:20px 0 20px 100px;
+  color: #4441B0;
+}
 @media only screen and (min-width: 1400px) {
   .cont{
     margin-top: 12%;
