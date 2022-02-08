@@ -12,6 +12,9 @@ function Login(){
     const dashboard = () => {
         navigate("/dashboard");
     }
+    const list = ()=>{
+        navigate("/list")
+    }
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -37,7 +40,7 @@ function Login(){
             console.log(data);
 
             if (data){
-                dashboard()
+                list()
             }
           })
         .catch(function (error) {
@@ -114,7 +117,7 @@ function Login(){
                     Forgot <a href="#">password?</a>
                 </p>
                 <p>
-                    Already a member? <Link to="/signup">Signup</Link>
+                    Not a member? <Link to="/signup">Signup</Link>
                 </p>
             </form>
             {/* </div> */}
