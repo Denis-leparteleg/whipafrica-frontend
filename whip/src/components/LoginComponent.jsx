@@ -8,8 +8,8 @@ import DashboardComponent from "./DashboardComponent";
 
 function Login(){
     const navigate = useNavigate();
-    const list = ()=>{
-        navigate("/list")
+    const artistlist = ()=>{
+        navigate("/artistlist")
     }
 
     const [email, setEmail] = useState("");
@@ -36,7 +36,7 @@ function Login(){
             console.log(data);
 
             if (data){
-                list()
+                artistlist()
             }
           })
         .catch(function (error) {

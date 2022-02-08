@@ -14,6 +14,7 @@ import Login from './components/LoginComponent'
 import Signup from './components/SignupComponent'
 import Dashboard from './components/DashboardComponent'
 import ListComponent from './components/ListComponent'
+import ArtistList from './components/ArtistListComponent'
 
 
 ReactDOM.render(
@@ -25,6 +26,7 @@ ReactDOM.render(
       <Route path = "/login" element={<App />} />
       <Route path = "/dashboard" element = {<Dashboard/>} />
       <Route path = "/list" element = {<ListComponent/>} />
+      <Route path = "/artistlist" element = {<ArtistList/>} />
       {/* <Route path = "/chart" element = {<BarChart/>} /> */}
     </Routes>
   </BrowserRouter>,
