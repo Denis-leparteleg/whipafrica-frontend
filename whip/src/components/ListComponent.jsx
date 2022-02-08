@@ -1,6 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ListComponent = ()=>{
+    const navigate = useNavigate();
+    const dashboard = () => {
+        navigate("/dashboard");
+    }
     return(
         <div>
             <h3 className="upcoming"><b>Leading Upcoming Artists in Bongo</b></h3>
@@ -14,7 +20,7 @@ const ListComponent = ()=>{
                     <span className="span-list">Streams Growth Rate</span></h3>
                     <h3><b>46K</b><br/><br/>
                     <span className="span-list">Social Media Following</span></h3>
-                    <a href="#">Artist Deep Dive</a>
+                    <Link to="/dashboard">Artist Deep Dive</Link>
                 </div>
                 <hr />
                 <div className="list-cont text-center">
@@ -27,7 +33,7 @@ const ListComponent = ()=>{
                     <span className="span-list">Streams Growth Rate</span></h3>
                     <h3><b>12.3K</b><br/><br/>
                     <span className="span-list">Social Media Following</span></h3>
-                    <a href="#">Artist Deep Dive</a>
+                    <Link to="/dashboard">Artist Deep Dive</Link>
                 </div>
                 <hr />
                 <div className="list-cont text-center">
@@ -40,7 +46,7 @@ const ListComponent = ()=>{
                     <span className="span-list">Streams Growth Rate</span></h3>
                     <h3><b>9.1K</b><br/><br/>
                     <span className="span-list">Social Media Following</span></h3>
-                    <a href="#">Artist Deep Dive</a>
+                    <Link to="/dashboard">Artist Deep Dive</Link>
                 </div>
                 <hr />
                 <div className="list-cont text-center">
@@ -53,7 +59,7 @@ const ListComponent = ()=>{
                     <span className="span-list">Streams Growth Rate</span></h3>
                     <h3><b>7.1K</b><br/><br/>
                     <span className="span-list">Social Media Following</span></h3>
-                    <a href="#">Artist Deep Dive</a>
+                    <Link to="/dashboard">Artist Deep Dive</Link>
                 </div>
                 <hr />
                 <div className="list-cont text-center">
@@ -66,7 +72,7 @@ const ListComponent = ()=>{
                     <span className="span-list">Streams Growth Rate</span></h3>
                     <h3><b>5.2K</b><br/><br/>
                     <span className="span-list">Social Media Following</span></h3>
-                    <a href="#">Artist Deep Dive</a>
+                    <Link to="/dashboard">Artist Deep Dive</Link>
                 </div>
                 <hr />
                 <div className="list-cont text-center">
@@ -79,7 +85,7 @@ const ListComponent = ()=>{
                     <span className="span-list">Streams Growth Rate</span></h3>
                     <h3><b>3.0K</b><br/><br/>
                     <span className="span-list">Social Media Following</span></h3>
-                    <a href="#">Artist Deep Dive</a>
+                    <Link to="/dashboard">Artist Deep Dive</Link>
                 </div>
                 <hr />
         </div>

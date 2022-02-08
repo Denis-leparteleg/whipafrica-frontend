@@ -8,10 +8,6 @@ import DashboardComponent from "./DashboardComponent";
 
 function Login(){
     const navigate = useNavigate();
-
-    const dashboard = () => {
-        navigate("/dashboard");
-    }
     const list = ()=>{
         navigate("/list")
     }
