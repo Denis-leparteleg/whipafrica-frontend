@@ -54,7 +54,7 @@ const ArtistList = ()=>{
           });
         }
       
-        //console.log(Arr);
+        // console.log(Arr);
         setArtistList(Arr);
         return Arr;
       }
@@ -70,10 +70,12 @@ const ArtistList = ()=>{
             url: "http://127.0.0.1:8000/api/popular/",
         });
         var stats = res.data.toString()
-        var statsElement = stats.split('source')
-        console.log(statsElement)
+        // var statsElement = stats.split('source')
+        // console.log(statsElement)
+        console.log(stats)
 
-       let arr = statsElement;
+    //    let arr = statsElement;
+    let arr = stats
        console.log(arr)
        getCleanArr(arr);}
     fetchArtist()
