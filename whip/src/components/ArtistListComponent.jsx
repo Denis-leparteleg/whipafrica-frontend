@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { Dropdown,DropdownButton } from "react-bootstrap";
 import ArtistData from "./ArtistData";
 
+
 const ArtistList = ()=>{
   const [testcases, settestcases] = useState([]);
   const [sortBy, setSortBy] = useState('spotify');
@@ -65,6 +66,9 @@ const fetchData = async () => {
     navigate("/dashboard")
   }
 
+  const home = () => {
+    navigate("/");}
+
   useEffect(() =>  {
     let cases = []
     if(sortBy === "spotify"){
@@ -92,6 +96,7 @@ const fetchData = async () => {
             <Dropdown.Item as="button" onClick={() => setSortBy('youtube')}>YouTube Streams</Dropdown.Item>
             <Dropdown.Item as="button" onClick={() => setSortBy('tiktok')}>TikTok Streams</Dropdown.Item>
             <Dropdown.Item as="button" onClick={() => setSortBy('spotify')}>Spotify Streams</Dropdown.Item>
+            <Dropdown.Item as="button" onClick={() => home()}>Home</Dropdown.Item>
           </DropdownButton>
           </div>
           
