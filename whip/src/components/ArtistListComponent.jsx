@@ -66,6 +66,9 @@ const fetchData = async () => {
     navigate("/dashboard")
   }
 
+  const home = () => {
+    navigate("/");}
+
   useEffect(() =>  {
     let cases = []
     if(sortBy === "spotify"){
@@ -93,6 +96,7 @@ const fetchData = async () => {
             <Dropdown.Item as="button" onClick={() => setSortBy('youtube')}>YouTube Streams</Dropdown.Item>
             <Dropdown.Item as="button" onClick={() => setSortBy('tiktok')}>TikTok Streams</Dropdown.Item>
             <Dropdown.Item as="button" onClick={() => setSortBy('spotify')}>Spotify Streams</Dropdown.Item>
+            <Dropdown.Item as="button" onClick={() => home()}>Home</Dropdown.Item>
           </DropdownButton>
           </div>
           
