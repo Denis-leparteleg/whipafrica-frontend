@@ -1,13 +1,22 @@
-import React, {useState, useEffect } from "react";
+import React, {useState, useEffect,useContext } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Dropdown,DropdownButton } from "react-bootstrap";
+import ArtistData from "./ArtistData";
 
 const ArtistList = ()=>{
   const [testcases, settestcases] = useState([]);
   const [sortBy, setSortBy] = useState('spotify');
   const [newArtists, setNewArtists] = useState([]);
+  
+  const navigate = useNavigate();
+  let value = useContext(ArtistData)
+  console.log(value)
+
+  useEffect(() => {
+   console.log(value.artistName)
+  },[value.artistName]);
 
   useEffect(() => {
     fetchData();
@@ -50,6 +59,11 @@ const fetchData = async () => {
     return ar;
   }
 
+  function clickedArtist(testcase){
+    value.setArtistName(testcase.name)
+    value.settheArtist(testcase)
+    navigate("/dashboard")
+  }
 
   useEffect(() =>  {
     let cases = []
@@ -96,7 +110,7 @@ const fetchData = async () => {
                       <span className="span-list">Total Streams</span></h3>
                       <h3><b>{testcase.stats.find(val => val.source == 'spotify')?.data.followers_total}</b><br/><br/>
                       <span className="span-list">Social Media Following</span></h3>
-                      <span className="link-list pointer">Artist Deep Dive</span>
+                      <span onClick={() => clickedArtist(testcase)} className="link-list pointer">Artist Deep Dive</span>
                   </div>
                   <hr />
                   </div>

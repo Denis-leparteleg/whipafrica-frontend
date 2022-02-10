@@ -1,10 +1,12 @@
-import React, {useState, useEffect } from "react";
+import React, {useState, useEffect,useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Chart as ChartJS, ArcElement,BarElement,CategoryScale,LinearScale,Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 import { Bar } from 'react-chartjs-2'
 import BarChart from "./Chart";
 import DoughnutChart from "./Charts/DoughnutChart";
+import ArtistData from "./ArtistData";
 
 ChartJS.register(
   Tooltip,
@@ -21,6 +23,16 @@ const DashboardContent = ()=>{
     const [searchTerm, setSearchTerm] = useState();
     const [songstats, setSongstats] = useState([]);
     const [testcases, settestcases] = useState([]);
+
+    const navigate = useNavigate();
+    const value = useContext(ArtistData);
+    console.log(value)
+    useEffect(() => {
+      if(value.artistName === "" || value.artisName === null ){
+        navigate("/artistlist")
+      }
+     },[value.artistName]);
+
     const data = {
       labels: [
         'TikTok',
@@ -172,7 +184,7 @@ const DashboardContent = ()=>{
 
               <div class = "top-left-left">
                    <div>
-                       <img src="../images/bensoul.jpeg" class="card-img-top" alt="..." height = "40px" width="40px"></img>
+                       <img src={value.theArtist.image} class="card-img-top" alt="..." height = "40px" width="40px"></img>
                        {/* {artists.map((artist) => (
                           <div key={artist.id} className='card cd-img'>
                               <img src={artist.artist.avatar} alt="..." height = "60px" width="60px"/>
@@ -197,7 +209,7 @@ const DashboardContent = ()=>{
       <div className="row col-row text-center">
   <div class="col-md-1">
   <div class="card">
-      <img src="../images/bensoul.jpeg" class="card-img-top" alt="..." height = "160px" width = "150px"></img>
+      <img src={value.theArtist.image} class="card-img-top" alt="..." height = "160px" width = "150px"></img>
       {/* {artists.map((artist) => (
       <div key={artist.id} className='card cd-img'>
           <img src={artist.artist.avatar} className="card-img-top" alt="..." height = "250px" />
