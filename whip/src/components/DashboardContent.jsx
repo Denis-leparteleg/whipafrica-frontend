@@ -197,7 +197,7 @@ const DashboardContent = ()=>{
       <div className="row col-row text-center">
   <div class="col-md-1">
   <div class="card">
-      <img src="../images/bensoul.jpeg" class="card-img-top" alt="..." height = "200px" width = "40px"></img>
+      <img src="../images/bensoul.jpeg" class="card-img-top" alt="..." height = "160px" width = "150px"></img>
       {/* {artists.map((artist) => (
       <div key={artist.id} className='card cd-img'>
           <img src={artist.artist.avatar} className="card-img-top" alt="..." height = "250px" />
@@ -260,7 +260,8 @@ const DashboardContent = ()=>{
   </div>
   <div className="grid-item pt-5 text-light item2">
   {/* <img src="../images/chart1.jpeg" class="card-img-top" alt="..."></img> */}
-  <Doughnut data={data}/>
+  <DoughnutChart/>
+  {/* <Doughnut data={data}/> */}
   </div>
   <div className="grid-item item3">
   <div class="w3-container">
