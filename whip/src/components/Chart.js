@@ -1,6 +1,7 @@
 import React from 'react'
 import { Chart as ChartJS, BarElement,CategoryScale,LinearScale } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
+import { withTheme } from 'styled-components'
 
 ChartJS.register(
   CategoryScale,
@@ -42,8 +43,9 @@ var options = {
   },
   legend:{
     labels:{
-      fontSize:26
+      fontSize:26,
     }
+    
   }
 }
   return (
