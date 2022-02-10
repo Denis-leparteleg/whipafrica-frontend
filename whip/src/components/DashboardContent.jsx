@@ -42,9 +42,9 @@ const DashboardContent = ()=>{
       datasets: [{
         label: 'My First Dataset',
         data: [
-          testcases.find(val => val.name == 'apple_music')?.data.playlists_current, 
-          testcases.find(val => val.name == 'apple_music')?.data.playlists_total, 
-          testcases.find(val => val.name == 'apple_music')?.data.charts_total
+          value.theArtist.stats.find(val => val.source == 'apple_music')?.data.playlists_current, 
+          value.theArtist.stats.find(val => val.source == 'apple_music')?.data.playlists_total, 
+          value.theArtist.stats.find(val => val.source == 'apple_music')?.data.charts_total
         ],
         backgroundColor: [
           'rgb(255, 99, 132)',
@@ -221,9 +221,11 @@ const DashboardContent = ()=>{
   <div className="col-md-2">
       <div className="">
           <div className="card-body">
-              <h4 className="card-title text-center">BENSOUL</h4>
-              <p className="text-center">Genre: R&B<br/>
-              <span>Location:Abuja</span></p>
+            <br/>
+              <h4 className="card-title text-center">{value.theArtist.name}</h4>
+              <br/>
+              {/* <p className="text-center">Genre: R&B<br/>
+              <span>Location:Abuja</span></p> */}
               <div className="text-center">
               <button className="rounded-pill btn-sm">Contact Artist</button>
               </div>
@@ -237,7 +239,7 @@ const DashboardContent = ()=>{
               <button className="p-3 btn-r"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></button>
               </div>
               <p class="card-title card-center">Total Streams Per Month<br/>
-              <span className="text-span"> <h3>{testcases.find(val => val.name == 'spotify')?.data.streams_total}</h3></span></p>
+              <span className="text-span"> <h3>{value.theArtist.stats.find(val => val.source == 'spotify')?.data.streams_total}</h3></span></p>
           </div>
       </div>
   </div>
@@ -248,7 +250,7 @@ const DashboardContent = ()=>{
           <button  className="p-3 btn-r"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></button>
           </div>
           <p class="card-title card-center">Streams Growth Rate<br/>
-              <span className="text-span"><h3>{testcases.find(val => val.name == 'amazon')?.data.playlists_current}</h3></span></p>
+              <span className="text-span"><h3>{value.theArtist.stats.find(val => val.source == 'youtube')?.data.video_views_total}</h3></span></p>
           </div>
       </div>
   </div>
@@ -259,7 +261,7 @@ const DashboardContent = ()=>{
           <button className="p-3 btn-r"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></button>
           </div>
           <p class="card-title card-center">Social Media Following<br/>
-              <span className="text-span"><h3>{testcases.find(val => val.name == 'tiktok')?.data.videos_total}</h3></span></p>
+              <span className="text-span"><h3>{value.theArtist.stats.find(val => val.source == 'tiktok')?.data.videos_total}</h3></span></p>
           </div>
       </div>
   </div>
@@ -272,8 +274,8 @@ const DashboardContent = ()=>{
   </div>
   <div className="grid-item pt-5 text-light item2">
   {/* <img src="../images/chart1.jpeg" class="card-img-top" alt="..."></img> */}
-  <DoughnutChart/>
-  {/* <Doughnut data={data}/> */}
+  {/* <DoughnutChart/> */}
+  <Doughnut data={data}/>
   </div>
   <div className="grid-item item3">
   <div class="w3-container">
