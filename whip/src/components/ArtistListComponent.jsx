@@ -5,116 +5,75 @@ import { useNavigate } from "react-router-dom";
 
 
 const ArtistList = ()=>{
-const [testcases, settestcases] = useState([]);
+  const [testcases, settestcases] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, [testcases.length]);
+ 
+const fetchData = async () => {
+  let res = await axios({
+      method: "GET",
+      url: "http://127.0.0.1:8000/api/popular/",
+  });
+  // console.log('Start')
+  // console.log(res.data.stats)
+  // console.log('end')
 
-useEffect(() => {
-    fetchData()
-  }, []);
-
-const getObject = (str) => {
-    let foundOpenBracket = false;
-    let foundCloseBracket = false;
-    let newStr = "";
+  var stats = JSON.parse(res.data)
+  console.log(stats)
   
-    for (let i = 0; i < str?.length; i++) {
-      if (foundCloseBracket) {
-        break;
-      }
-      if (str[i] == "{") {
-        foundOpenBracket = true;
-      }
-      if (foundOpenBracket) {
-        newStr = newStr + str[i];
-      }
-      if (str[i] == "}") {
-        foundCloseBracket = true;
-      }
-    }
-    try {
-      if (newStr == "") return false;
-      return JSON.parse(newStr);
-    } catch (e) {
-      return false;
-    }
+  let artisits = []
+  stats.forEach(el => {
+    let artist = el.fields
+    console.log(artist.stats)
+    artist.stats = JSON.parse(artist.stats.replaceAll("'", '"').replaceAll('None', '""'))
+    artisits.push(artist)
+  })
+  console.log(artisits)
+  settestcases(artisits)
   };
 
-  const getSourceName = (str) => {
-    let newStr = "";
-    for (let i = 2; i < str.length; i++) {
-      if (str[i] != '"' && str[i] != ":") {
-        newStr = newStr + str[i];
-      }
-      if (i > 0 && str[i] == ",") {
-        return newStr.slice(0, -1);
+  function sortArray(array) {
+    var temp = 0;
+    for (var i = 0; i < array.length; i++) {
+      for (var j = i; j < array.length; j++) {
+        if (array[j] < array[i]) {
+          temp = array[j];
+          array[j] = array[i];
+          array[i] = temp;
+        }
       }
     }
-  
-    return newStr;
-  };
-
-  const getCleanArr = (arr) => {
-    let Arr = [];
-    for (let i = 1; i < arr.length; i++) {
-      console.log(getSourceName(arr[i]));
-      Arr.push({
-        name: getSourceName(arr[i]),
-        data: getObject(arr[i]),
-      });
-    }
-  
-    //console.log(Arr);
-    settestcases(Arr);
-    return Arr;
+    return array;
   }
-  function objectArray(docs){
-    let arr = []
-    docs.forEach((doc)=>{
-        // console.log('Start')
-        // console.log(doc)
-        // console.log('End')
-    //    console.log(JSON.parse(doc))
-       // console.log(JSON.parse(doc));
-    //    console.log(typeof doc)
-    })
-  return arr
-};
-  const fetchData = async () => {
-      let res = await axios({
-          method: "GET",
-          url: "http://127.0.0.1:8000/api/popular/",
-      });
-      var stats = res.data.toString()
-      var statsElement = stats.split('source')
-      console.log(statsElement)
-      
-      
+  
+  console.log(sortArray([testcases]));
 
-     let arr = statsElement;
-     console.log(arr)
-     getCleanArr(arr);
-
-    // useEffect(() => {
-    //   settestcases(getCleanArr());
-    //   alert('working')
-    // }, [])
-    // getObject(
-    //   '":"spotify","data":{"streams_total":2505441223,"mo…ities_total":39,"charted_countries_total":69}},{"'
-    // );
-      }; 
-    //   fetchData()
     return (
         <div>
-          <h1>{testcases}</h1>
-            <h1>{testcases.find(val => val.name == 'spotify')?.data.streams_total}</h1>
-            <ul>
-            {testcases.map((testcase) => (
-                          <li >
-                              <h1>{testcase}</h1>
-                          </li>
-                          ))}
-            </ul>
-            
+          <h3 className="upcoming"><b>Leading Upcoming Artists in Bongo</b></h3>
+              {testcases.map(testcase => (
+                <div>
+                  <div className="list-cont text-center">
+                      <h3 className="pt-5"><b></b></h3>
+                      <img src={testcase.image} alt="..." height = "120px" width="140px"/>
+                      <h3><b>{testcase.name}</b></h3>
+
+                      <h3><b>{testcase.stats.find(val => val.source == 'spotify')?.data.streams_total}</b><br/><br/>
+
+                      <span className="span-list">Average Streams per month</span></h3>
+                      {/* <h3 className=""><b>61%</b><br/><br/>
+                      <span className="span-list">Streams Growth Rate</span></h3> */}
+                      <h3><b>{testcase.stats.find(val => val.source == 'spotify')?.data.followers_total}</b><br/><br/>
+                      <span className="span-list">Social Media Following</span></h3>
+                      <Link to="/dashboard">Artist Deep Dive</Link>
+                  </div>
+                  <hr />
+                  </div>
+              ))}   
         </div>
     )
+
+    
 };
 export default ArtistList;
