@@ -352,6 +352,22 @@ div.content {
   background-color: #4441B0;
 }
 
+.drop-btn{
+  margin-left: 90%;
+  margin-top: 10px;
+  width: 40%;
+}
+
+.link-list{
+  color: #4441B0;
+}
+
+#dropdown-item-button{
+  background-color: #4441B0;
+}
+.pointer {
+  cursor: pointer;
+}
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
 @media screen and (max-width: 700px) {
   .sidebar {
@@ -383,10 +399,10 @@ div.content {
   width: 100%;
   padding: 5px;
   background-color: #4441B0;
-  height: 60%;
+  height: 50%;
 }
 .search-artist{
-  height: 60%;
+  height: 50%;
 }
 .top-left .card-img-top{
   height: 75px;
