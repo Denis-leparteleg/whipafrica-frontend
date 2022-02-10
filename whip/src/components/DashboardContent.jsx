@@ -221,9 +221,11 @@ const DashboardContent = ()=>{
   <div className="col-md-2">
       <div className="">
           <div className="card-body">
+            <br/>
               <h4 className="card-title text-center">{value.theArtist.name}</h4>
-              <p className="text-center">Genre: R&B<br/>
-              <span>Location:Abuja</span></p>
+              <br/>
+              {/* <p className="text-center">Genre: R&B<br/>
+              <span>Location:Abuja</span></p> */}
               <div className="text-center">
               <button className="rounded-pill btn-sm">Contact Artist</button>
               </div>
@@ -248,7 +250,7 @@ const DashboardContent = ()=>{
           <button  className="p-3 btn-r"><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></button>
           </div>
           <p class="card-title card-center">Streams Growth Rate<br/>
-              <span className="text-span"><h3>{value.theArtist.stats.find(val => val.source == 'amazon')?.data.playlists_current}</h3></span></p>
+              <span className="text-span"><h3>{value.theArtist.stats.find(val => val.source == 'youtube')?.data.video_views_total}</h3></span></p>
           </div>
       </div>
   </div>
