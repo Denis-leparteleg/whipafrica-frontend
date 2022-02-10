@@ -1,6 +1,7 @@
 import React from "react";
 import DashboardContent from "./DashboardContent";
 import { useNavigate } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 
 const DashboardSideNav= ()=>{
@@ -19,6 +20,7 @@ const DashboardSideNav= ()=>{
                     <h3>whip.</h3>
                 </a>
                 <a class="active" href="#home"><i class="fa fa-fw fa-home"></i> Fresh talent</a>
+                <a href="/artistlist"> <i class="fa fa-fw fa-list"></i>List</a>
                 <a href="#news"> <i class="fa fa-fw fa-cogs"></i>FAQs</a>
                 <a href="#contact"><i class="fa fa-fw fa-cog"></i>Settings</a>
                 <button type="button" onClick={home} className="btn btn-primary btn-sm rounded-pill">Log out</button>
