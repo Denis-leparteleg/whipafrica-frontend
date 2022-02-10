@@ -125,7 +125,7 @@ const DashboardContent = ()=>{
     const fetchData = async () => {
         let res = await axios({
             method: "GET",
-            url: "http://localhost:8000/api/stats/",
+            url: "https://whipmusicafrica-backend.herokuapp.com/api/stats/",
         });
         var stats = res.data.toString()
         var statsElement = stats.split('source')

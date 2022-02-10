@@ -14,7 +14,7 @@ const ArtistList = ()=>{
 const fetchData = async () => {
   let res = await axios({
       method: "GET",
-      url: "http://localhost:8000/api/popular/",
+      url: "https://whipmusicafrica-backend.herokuapp.com/api/popular/",
   });
 
   var stats = JSON.parse(res.data)
@@ -30,13 +30,19 @@ const fetchData = async () => {
   console.log(artisits)
   settestcases(artisits)
   };
+
+ function myFunc(obj){
+   console.log(obj)
+ }
+
+
   useEffect(() =>  {
     let cases = []
     if(sortBy === "spotify"){
      cases = testcases.sort((b,a) => {
      let x = a.stats.find((el) => el.source == 'spotify').data.streams_total - b.stats.find((el) => el.source == 'spotify').data.streams_total 
-     console.log(b,a)
-     console.log(x)
+    //  console.log(b,a)
+    //  console.log(x)
      return x
     })
     }
@@ -68,10 +74,17 @@ const fetchData = async () => {
                       <h3 className="pt-5"><b></b></h3>
                       <img src={testcase.image} alt="..." height = "120px" width="140px"/>
                       <h3><b>{testcase.name}</b></h3>
-                      <h3><b>{testcase.stats.find(val => val.source == 'spotify')?.data.streams_total}</b><br/><br/>
-                      <span className="span-list">Total Streams</span></h3>
-                      <h3><b>{testcase.stats.find(val => val.source == 'spotify')?.data.followers_total}</b><br/><br/>
-                      <span className="span-list">Social Media Following</span></h3>
+                      {console.log('start')}
+                      {/* {console.log(testcase.stats[0].data)}
+                      {console.log(typeof testcase.stats[0])} */}
+                      {myFunc(testcase.stats[0].source)}
+
+                      {console.log('end')}
+                      
+                      {/* <h3><b>{testcase?.stats?.find(val => val.source == 'spotify')?.data.streams_total}</b><br/><br/>
+                      <span className="span-list">Total Streams</span></h3> */}
+                      {/* <h3><b>{testcase.stats.find(val => val.source == 'spotify')?.data.followers_total}</b><br/><br/>
+                      <span className="span-list">Social Media Following</span></h3> */}
                       <Link className="link-list" to="/dashboard">Artist Deep Dive</Link>
                   </div>
                   <hr />
