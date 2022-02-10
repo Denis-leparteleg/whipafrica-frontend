@@ -14,7 +14,7 @@ const ArtistList = ()=>{
 const fetchData = async () => {
   let res = await axios({
       method: "GET",
-      url: "http://127.0.0.1:8000/api/popular/",
+      url: "http://localhost:8000/api/popular/",
   });
 
   var stats = JSON.parse(res.data)
@@ -68,7 +68,7 @@ const fetchData = async () => {
                       <h3 className="pt-5"><b></b></h3>
                       <img src={testcase.image} alt="..." height = "120px" width="140px"/>
                       <h3><b>{testcase.name}</b></h3>
-                      <h3><b>{testcase.stats?.find(val => val.source == 'spotify')?.data.streams_total}</b><br/><br/>
+                      <h3><b>{testcase.stats.find(val => val.source == 'spotify')?.data.streams_total}</b><br/><br/>
                       <span className="span-list">Total Streams</span></h3>
                       <h3><b>{testcase.stats.find(val => val.source == 'spotify')?.data.followers_total}</b><br/><br/>
                       <span className="span-list">Social Media Following</span></h3>
@@ -78,8 +78,6 @@ const fetchData = async () => {
                   </div>
               ))}   
         </div>
-    )
-
-    
+    )    
 };
 export default ArtistList;

@@ -125,7 +125,7 @@ const DashboardContent = ()=>{
     const fetchData = async () => {
         let res = await axios({
             method: "GET",
-            url: "http://127.0.0.1:8000/api/stats/",
+            url: "http://localhost:8000/api/stats/",
         });
         var stats = res.data.toString()
         var statsElement = stats.split('source')
