@@ -86,13 +86,11 @@ const getObject = (str) => {
       var stats = res.data.toString()
       var statsElement = stats.split('source')
       console.log(statsElement)
-      console.log("We are here")
-      var artistLists = stats.split('name')
-      console.log(artistLists)
+      
       
 
      let arr = statsElement;
-    //  console.log(arr)
+     console.log(arr)
      getCleanArr(arr);
 
     // useEffect(() => {
@@ -106,7 +104,16 @@ const getObject = (str) => {
     //   fetchData()
     return (
         <div>
-            <h1>This is the artist list component</h1>
+          <h1>{testcases}</h1>
+            <h1>{testcases.find(val => val.name == 'spotify')?.data.streams_total}</h1>
+            <ul>
+            {testcases.map((testcase) => (
+                          <li >
+                              <h1>{testcase}</h1>
+                          </li>
+                          ))}
+            </ul>
+            
         </div>
     )
 };
