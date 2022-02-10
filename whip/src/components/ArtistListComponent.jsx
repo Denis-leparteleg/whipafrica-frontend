@@ -7,6 +7,8 @@ import { Dropdown,DropdownButton } from "react-bootstrap";
 const ArtistList = ()=>{
   const [testcases, settestcases] = useState([]);
   const [sortBy, setSortBy] = useState('spotify');
+  const [newArtists, setNewArtists] = useState([]);
+
   useEffect(() => {
     fetchData();
   }, [testcases.length]);
@@ -28,12 +30,25 @@ const fetchData = async () => {
     artisits.push(artist)
   })
   console.log(artisits)
-  settestcases(artisits)
+  settestcases(cleanTestCase(artisits))
+  // setNewArtists(cleanTestCase(artisits))
   };
 
- function myFunc(obj){
-   console.log(obj)
- }
+  function cleanTestCase(docs) {
+    let ar = [];
+
+    docs.forEach((doc) => {
+      console.log(doc);
+
+      if (Array.isArray(doc.stats)) {
+        if (doc.stats[0] != "data") {
+          ar.push(doc);
+          console.log(doc);
+        }
+      }
+    });
+    return ar;
+  }
 
 
   useEffect(() =>  {
@@ -74,18 +89,14 @@ const fetchData = async () => {
                       <h3 className="pt-5"><b></b></h3>
                       <img src={testcase.image} alt="..." height = "120px" width="140px"/>
                       <h3><b>{testcase.name}</b></h3>
-                      {console.log('start')}
                       {/* {console.log(testcase.stats[0].data)}
                       {console.log(typeof testcase.stats[0])} */}
-                      {myFunc(testcase.stats[0].source)}
-
-                      {console.log('end')}
                       
-                      {/* <h3><b>{testcase?.stats?.find(val => val.source == 'spotify')?.data.streams_total}</b><br/><br/>
-                      <span className="span-list">Total Streams</span></h3> */}
-                      {/* <h3><b>{testcase.stats.find(val => val.source == 'spotify')?.data.followers_total}</b><br/><br/>
-                      <span className="span-list">Social Media Following</span></h3> */}
-                      <Link className="link-list" to="/dashboard">Artist Deep Dive</Link>
+                      <h3><b>{testcase?.stats?.find(val => val.source == 'spotify')?.data.streams_total}</b><br/><br/>
+                      <span className="span-list">Total Streams</span></h3>
+                      <h3><b>{testcase.stats.find(val => val.source == 'spotify')?.data.followers_total}</b><br/><br/>
+                      <span className="span-list">Social Media Following</span></h3>
+                      <span className="link-list pointer">Artist Deep Dive</span>
                   </div>
                   <hr />
                   </div>
