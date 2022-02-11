@@ -33,7 +33,7 @@ function Signup(){
 
         let payload = { email,name, password};
 
-        axios.post('http://127.0.0.1:8000/api/register/', payload)
+        axios.post('https://whipmusicafrica-backend.herokuapp.com/api/register/', payload)
         .then(function (response) {
             let data = response.data;
             console.log(data);

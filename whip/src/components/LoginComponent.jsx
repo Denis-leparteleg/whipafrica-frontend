@@ -29,7 +29,7 @@ function Login(){
 
         let payload = { email, password};
 
-        axios.post('http://127.0.0.1:8000/api/login/', payload)
+        axios.post('https://whipmusicafrica-backend.herokuapp.com/api/login/', payload)
 
         .then(function (response) {
             let data = response.data;
