@@ -10,6 +10,7 @@ import Header from './HeaderComponent';
 import Footer from './FooterComponent';
 import Login from './LoginComponent';
 import Signup from './SignupComponent';
+import { Link } from 'react-router-dom';
 
 
 
@@ -40,7 +41,8 @@ const MainComponent = () => {
                       social<br /><span className='media'> media charts and Playlist Data.</span></b>
                   </h4>
               </div>
-            <button className='btn btn-2 btn-sm'><strong className='search'>Search Artist</strong></button>  
+              <Link to="/signup">
+            <button className='btn btn-2 btn-sm'><strong className='search'>Search Artist</strong></button>  </Link>
             </div>
             <div className='img-wrapper'>
               <img className='img-cont' src={bensoul}/>
